@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+.question {
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    border-radius: 50px;
+    transition: background-color 0.1s ease;
+    border: 2px solid #e74c3c;
+}
+
+.question:hover {
+    background-color: #fff5f5;
+}
+</style>
+
+<body style="
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 30px;
+    font-size: 25px;
+    color: #c0392b;
+">
+
+<!--<h1>Crowd Behaviour Survey</h1>-->
+
+<div style="
+    display: flex;
+    align-items: center;
+    gap: 250px;
+    margin-bottom: 50px;
+    margin-top: 40px;
+">
+
+    <h1 style="margin: 0; margin-left: 25px;">
+        Crowd Behaviour Survey
+    </h1>
+
+    <img src="/static/LOGO.png"
+         alt="University of Bristol Logo"
+         style="height: 90px; width: auto;margin-left: -10px;">
+
+
+    <img src="/static/LOGO2.png"
+         alt="University of Bristol Logo"
+         style="height: 110px; width: auto;
+            margin-left: -220px;">
+</div>
+
+<div class="question">
+
+Thank you for taking part in this academic survey on pedestrian mobility behaviour. Your participation will help us
+understand how to prevent stampede disasters from happening again, as seen in historical cases such as Hillsborough
+disaster (hundreds of people were injured) and Itaewon crowd disaster (159 fatalities).
+
+<br>
+
+<table style="margin-top: 10px;">
+    <tr>
+        <!-- Hillsborough -->
+        <td align="center">
+            <img src="/static/introductionA.png"
+                 width="450">
+            <br>
+        <div style="margin-top: 5px;">
+        Hillsborough Disaster (1989)
+        </div>
+        </td>
+
+        <td width="50"></td>
+
+        <!-- Itaewon -->
+        <td align="center">
+            <img src="/static/introductionB.png"
+                 width="450">
+            <br>
+            <div style="margin-top: 5px;">
+            Itaewon Crowd Disaster (2022)
+            </div>
+        </td>
+
+    </tr>
+</table>
+</div>
+<!--<br>-->
+
+
+<form method="POST" autocomplete="off">
+<div class="question">
+    <h3>About you</h3>
+    <label style="font-size: 25px;">
+        Age:
+        <input name="age"
+               style="font-size: 25px;
+                font-family: inherit;">
+    </label>
+
+    <br><br>
+
+    <label style="font-size: 25px;">
+        Gender:
+        <select name="gender"
+                style="font-size: 25px;
+                       font-family: inherit;">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+    </label>
+    <!--<br><br>-->
+</div>
+
+<!--<h3>Q1: In your daily life, have you ever felt uncomfortable or found it difficult to move about because of crowded spaces?</h3>-->
+
+
+<!--<input type="radio" name="Q1" value="1"> 1 (Never)<br>-->
+<!--<input type="radio" name="Q1" value="2"> 2<br>-->
+<!--<input type="radio" name="Q1" value="3"> 3<br>-->
+<!--<input type="radio" name="Q1" value="4"> 4<br>-->
+<!--<input type="radio" name="Q1" value="5"> 5 (Very frequently)<br>-->
+
+<!--<br>-->
+<div class="question">
+
+<h3>Q1: What kind of situation makes you feel most at ease?</h3>
+
+<table>
+<tr>
+    <td align="center">
+        <img src="/static/Q1A.jpg" width="450"><br>
+        <div style="margin-top: 5px;">
+            <label>
+                <input type="radio" name="Q1" value="A" style="transform: scale(1.5); margin-right: 5px;">
+                A
+            </label>
+        </div>
+    </td>
+
+    <td width="50"></td>
+
+    <td align="center">
+        <img src="/static/Q1B.jpg" width="450"><br>
+        <div style="margin-top: 5px;">
+            <label>
+                <input type="radio" name="Q1" value="B" style="transform: scale(1.5); margin-right: 5px;">
+                B
+            </label>
+        </div>
+    </td>
+</tr>
+</table>
+</div>
+
+<!--<label>-->
+<!--    Reason:-->
+<!--</label>-->
+
+<!--<textarea-->
+<!--    name="Q2reason"-->
+<!--    rows="4"-->
+<!--    cols="80"-->
+<!--    placeholder="Please explain why you chose this scenario..."-->
+<!--&gt;</textarea>-->
+<div class="question">
+<h3>Q2: Have you ever taken part in any major public events involving a significant number of people? (multiple choice)</h3>
+
+<table>
+
+    <!-- 第一行 -->
+    <tr>
+
+        <td align="center">
+            <img src="/static/Q2A.jpg" width="450">
+
+            <div style="margin-top: 5px; margin-bottom: 10px;">
+                <label>
+                    <input type="checkbox"
+                           name="Q2"
+                           value="Music Festivals"
+                           style="transform: scale(1.5); margin-right: 5px;">
+                    Music Festivals
+                </label>
+            </div>
+        </td>
+
+        <td width="50"></td>
+
+        <td align="center">
+            <img src="/static/Q2B.jpg" width="450">
+
+            <div style="margin-top: 5px; margin-bottom: 10px;">
+                <label>
+                    <input type="checkbox"
+                           name="Q2"
+                           value="Sports Events"
+                           style="transform: scale(1.5); margin-right: 5px;">
+                    Sports Events
+                </label>
+            </div>
+        </td>
+
+    </tr>
+
+    <!-- 第二行 -->
+    <tr>
+
+        <td align="center">
+            <img src="/static/Q2C.jpg" width="450">
+
+            <div style="margin-top: 5px; margin-bottom: 10px;">
+                <label>
+                    <input type="checkbox"
+                           name="Q2"
+                           value="Fireworks Displays"
+                           style="transform: scale(1.5); margin-right: 5px;">
+                    Fireworks Displays
+                </label>
+        </td>
+
+        <td width="50"></td>
+
+        <td align="center">
+            <img src="/static/Q2D.jpg" width="450">
+
+            <div style="margin-top: 5px; margin-bottom: 10px;">
+                <label>
+                    <input type="checkbox"
+                           name="Q2"
+                           value="Parades"
+                           style="transform: scale(1.5); margin-right: 5px;">
+                    Parades
+                </label>
+            </div>
+        </td>
+
+    </tr>
+
+</table>
+</div>
+
+<!--<br><br>-->
+
+<!--<h3>-->
+<!--Q3: In which of the following situations are you most likely to experience overcrowding?-->
+<!--</h3>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3" value="Underground stations"  >-->
+<!--    Underground stations-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3" value="Railway stations">-->
+<!--    Railway stations-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3" value="Shopping centres">-->
+<!--    Shopping centres-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3" value="Sporting events">-->
+<!--    Sporting events-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3" value="Concerts">-->
+<!--    Concerts-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3" value="Festivals">-->
+<!--    Festivals-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3" value="Airports">-->
+<!--    Airports-->
+<!--</label>-->
+
+<!--<br><br>-->
+
+<!--<label>Other comments:</label>-->
+<!--<br>-->
+
+<!--<textarea-->
+<!--    name="Q3add"-->
+<!--    rows="3"-->
+<!--    cols="80"-->
+<!--    placeholder="Anything else...(optional)"-->
+<!--&gt;</textarea>-->
+
+<!--<br><br>-->
+
+
+<!--<h3>-->
+<!--Q4: What do you think is the main cause of overcrowding?-->
+<!--</h3>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q4" value="Too many people" >-->
+<!--    Too many people-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q4" value="Aisles are too narrow">-->
+<!--    Aisles are too narrow-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q4" value="Insufficient entrances and exits">-->
+<!--    Insufficient entrances and exits-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q4" value="People jostling for space">-->
+<!--    People jostling for space-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q4" value="Differences in walking speed">-->
+<!--    Differences in walking speed-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q4" value="Lack of guidance">-->
+<!--    Lack of guidance-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q4" value="Airports">-->
+<!--    Airports-->
+<!--</label>-->
+<!--<br>-->
+<!--    <label>-->
+<!--    <input type="checkbox" name="Q4" value="Unclear">-->
+<!--    Unclear-->
+<!--</label>-->
+
+<!--<br><br>-->
+
+<!--<label>-->
+<!--    Other comments:-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<textarea-->
+<!--    name="Q4add"-->
+<!--    rows="3"-->
+<!--    cols="80"-->
+<!--    placeholder="Anything else...(optional)"-->
+<!--&gt;</textarea>-->
+
+<!--<br><br><br><br>-->
+
+<div class="question">
+
+<h3>
+Q3: In which scenario do you think the pedestrians are moving in a orderly and organised manner?
+</h3>
+
+
+<table>
+<tr>
+    <td align="center">
+        <img src="/static/030.gif" width="450">
+<!--        <div-->
+<!--           style="margin-top: 0px; margin-bottom: 0px;"> -->
+        <br><b>Scenarios A</b>
+<!--        </div>-->
+    </td>
+    <td width="50"></td>
+
+    <td align="center">
+        <img src="/static/040.gif" width="450">
+<!--        <div-->
+<!--           style="margin-top: 0px; margin-bottom: 0px;"> -->
+        <br><b>Scenarios B</b>
+<!--        </div>-->
+    </td>
+</tr>
+</table>
+<br>
+
+<input type="radio" name="Q3" value="Scenarios A" style="transform: scale(1.5); margin-right: 5px;" > Scenarios A <br>
+<input type="radio" name="Q3" value="Scenarios B" style="transform: scale(1.5); margin-right: 5px;"> Scenarios B <br>
+<input type="radio" name="Q3" value="Both are disorganised and disorderly" style="transform: scale(1.5); margin-right: 5px;"> Both are disorganised and disorderly <br>
+
+</div>
+<!--<table>-->
+<!--<tr>-->
+<!--&lt;!&ndash;    <td align="center">&ndash;&gt;-->
+<!--&lt;!&ndash;        <img src="/static/030.gif" width="450"><br>&ndash;&gt;-->
+<!--        <label>-->
+<!--            <input type="radio" name="Q3" value="Scenarios A" style="transform: scale(1.5); margin-right: 5px;" >-->
+<!--            Scenarios A-->
+<!--        </label>-->
+<!--&lt;!&ndash;    </td>&ndash;&gt;-->
+
+<!--    <td width="50"></td>-->
+
+<!--&lt;!&ndash;    <td align="center">&ndash;&gt;-->
+<!--&lt;!&ndash;        <img src="/static/040.gif" width="450"><br>&ndash;&gt;-->
+<!--        <label>-->
+<!--            <input type="radio" name="Q3" value="Scenarios B" style="transform: scale(1.5); margin-right: 5px;">-->
+<!--            Scenarios B-->
+<!--        </label>-->
+<!--&lt;!&ndash;    </td>&ndash;&gt;-->
+
+<!--</tr>-->
+
+<!--&lt;!&ndash;</table>&ndash;&gt;-->
+
+
+<!--    <label> <input type="radio" name="Q3" value="Both are rather disorganised and disorderly" style="transform: scale(1.5); margin-right: 5px;" > Both are rather disorganised and disorderly. </label>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3"-->
+<!--           value="Crowd order"-->
+<!--    style="transform: scale(1.5); margin-right: 5px;">-->
+
+<!--    Crowd order: how orderly and organised people move, including avoiding forceful pushing-->
+<!--</label>-->
+<!--<br>-->
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3"-->
+<!--           value="Level of emergency"-->
+<!--           style="transform: scale(1.5); margin-right: 5px;">-->
+<!--    Level of emergency: the degree of urgency or pressure experienced by pedestrians-->
+<!--</label>-->
+<!--<br>-->
+<!--<label>-->
+<!--    <input type="checkbox" name="Q3"-->
+<!--           value="Collective consciousness"-->
+<!--    style="transform: scale(1.5); margin-right: 5px;">-->
+<!--    Collective consciousness: how much people consider others and the crowd as a whole-->
+<!--</label>-->
+
+<!--<br><br>-->
+
+<!--<label>-->
+<!--    Other differences you noticed:-->
+<!--</label>-->
+
+<!--<br>-->
+
+<!--<textarea-->
+<!--    name="Q3add"-->
+<!--    rows="4"-->
+<!--    cols="80"-->
+<!--    placeholder="Anything else...(optional)"-->
+<!--&gt;</textarea>-->
+
+<!--<br><br>-->
+
+<!--<h3>Q6: Do you believe that these two different scenarios have different effects on your mobility?</h3>-->
+
+<!--<input type="radio" name="Q6" value="Yes" style="transform: scale(1.5); margin-right: 5px;"> Yes<br>-->
+<!--<input type="radio" name="Q6" value="No" style="transform: scale(1.5); margin-right: 5px;"> No <br>-->
+
+<div class="question">
+<h3>Q4: Which crowd would you prefer to join when moving towards the exit? </h3>
+
+<table>
+<tr>
+    <td align="center">
+        <img src="/static/030.gif" width="450"><br>
+        <label>
+            <input type="radio" name="Q4" value="Scenarios A" style="transform: scale(1.5); margin-right: 5px;" >
+            Scenarios A
+        </label>
+    </td>
+
+    <td width="50"></td>
+
+    <td align="center">
+        <img src="/static/040.gif" width="450"><br>
+        <label>
+            <input type="radio" name="Q4" value="Scenarios B" style="transform: scale(1.5); margin-right: 5px;">
+            Scenarios B
+        </label>
+    </td>
+</tr>
+</table>
+</div>
+<!--<br>-->
+
+<!--<label>-->
+<!--    Reason:-->
+<!--</label>-->
+
+<!--<br>-->
+<!--<textarea-->
+<!--    name="Q4reason"-->
+<!--    rows="4"-->
+<!--    cols="80"-->
+<!--    placeholder="Please explain why you chose this scenario..."-->
+<!--    style="font-size: 20px;"-->
+<!--&gt;</textarea>-->
+
+<!--<br><br>-->
+
+
+<!--<h3> Q8: Do you think the crowd you've chosen would be beneficial to you? </h3>-->
+
+<!--<label> <input type="radio" name="Q8" value="Yes"  onclick="document.getElementById('Q8_reasons').style.display='block'"> Yes </label>-->
+
+<!--<br>-->
+
+<!--<label> <input type="radio" name="Q8" value="No" onclick="document.getElementById('Q8_reasons').style.display='none'"> No </label>-->
+
+<!--<br><br>-->
+
+<!--<div id="Q8_reasons" style="display:none; margin-left:20px;">-->
+
+<!--<b>If so, why?</b>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q8_reason"-->
+<!--           value="Reach the exit more quickly">-->
+<!--    I believe I would reach the exit more quickly.-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q8_reason"-->
+<!--           value="Evacuate more efficiently overall">-->
+<!--    I believe the crowd would evacuate more efficiently overall.-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q8_reason"-->
+<!--           value="Feel safer">-->
+<!--    I would feel safer.-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q8_reason"-->
+<!--           value="Feel more comfortable">-->
+<!--    I would feel more comfortable.-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q8_reason"-->
+<!--           value="Less physical contact">-->
+<!--    I would experience less physical contact.-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox" name="Q8_reason"-->
+<!--           value="Greater freedom to choose my own movement">-->
+<!--    I would have greater freedom to choose my own movement.-->
+<!--</label>-->
+<!--<br>-->
+<!--</div>-->
+
+<div class="question">
+<h3>Q5: Do you think the crowd you've chosen would have a positive effect on your movement?</h3>
+
+<label>
+    <input type="radio"
+           name="Q5"
+           value="Yes"
+           style="transform: scale(1.5); margin-right: 5px;"
+           onclick="document.getElementById('Q5_reasons').style.display='block'">
+    Yes
+</label>
+
+<br>
+
+<label>
+    <input type="radio"
+           name="Q5"
+           value="No"
+           style="transform: scale(1.5); margin-right: 5px;"
+           onclick="document.getElementById('Q5_reasons').style.display='none'">
+    No
+</label>
+
+<!--<br><br>-->
+
+<div id="Q5_reasons" style="display:none; margin-left:20px;">
+
+
+<b>If so, why? (multiple choice)</b>
+<br>
+
+<div id="Q5_reason_list">
+
+    <label>
+        <input type="checkbox" name="Q5_reason"
+               value="Reach the exit more quickly"
+        style="transform: scale(1.5); margin-right: 5px;">
+        I believe I would reach the exit more quickly.
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" name="Q5_reason"
+               value="Evacuate more efficiently overall"
+        style="transform: scale(1.5); margin-right: 5px;">
+        I believe the crowd would evacuate more efficiently overall.
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" name="Q5_reason"
+               value="Feel safer"
+        style="transform: scale(1.5); margin-right: 5px;">
+        I would feel safer.
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" name="Q5_reason"
+               value="Feel more comfortable"
+        style="transform: scale(1.5); margin-right: 5px;">
+        I would feel more comfortable.
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" name="Q5_reason"
+               value="Less physical contact"
+        style="transform: scale(1.5); margin-right: 5px;">
+        I would experience less physical contact.
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" name="Q5_reason"
+               value="Greater freedom to choose my own movement"
+        style="transform: scale(1.5); margin-right: 5px;">
+        I would have greater freedom to choose my own movement.
+    </label>
+    <br>
+
+</div>
+
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const list = document.getElementById("Q5_reason_list");
+
+    // Get only the six reasons
+    const reasons = Array.from(list.querySelectorAll("label"));
+
+    // Randomly shuffle the six reasons
+    for (let i = reasons.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [reasons[i], reasons[j]] = [reasons[j], reasons[i]];
+    }
+
+    // Remove the original content
+    list.innerHTML = "";
+
+    // Put the reasons back in random order
+    reasons.forEach(function (reason) {
+        list.appendChild(reason);
+        list.appendChild(document.createElement("br"));
+    });
+
+});
+</script>
+</div>
+
+<div class="question">
+<h3>
+    Q6: What  factors do you think influence the movement of pedestrians in these two scenarios?
+</h3>
+
+<!--<ul id="Q9_ranking" style="-->
+<!--    list-style: none;-->
+<!--    padding: 0;-->
+<!--    max-width: 700px;-->
+<!--">-->
+
+<!--<li draggable="true" data-value="Spatial comfort" style="-->
+<!--    padding: 15px;-->
+<!--    margin: 8px 0;-->
+<!--    border: 1px solid #ccc;-->
+<!--    border-radius: 6px;-->
+<!--    background: #f5f5f5;-->
+<!--    cursor: move;-->
+<!--">-->
+<!--    Spatial comfort: crowd density and maintaining a safe distance from others-->
+<!--</li>-->
+
+<!--<li draggable="true" data-value="Social order" style="-->
+<!--    padding: 15px;-->
+<!--    margin: 8px 0;-->
+<!--    border: 1px solid #ccc;-->
+<!--    border-radius: 6px;-->
+<!--    background: #f5f5f5;-->
+<!--    cursor: move;-->
+<!--">-->
+<!--    Social order: keeping a steady pace, being polite, and avoiding pushing-->
+<!--</li>-->
+
+<!--<li draggable="true" data-value="Initial positions" style="-->
+<!--    padding: 15px;-->
+<!--    margin: 8px 0;-->
+<!--    border: 1px solid #ccc;-->
+<!--    border-radius: 6px;-->
+<!--    background: #f5f5f5;-->
+<!--    cursor: move;-->
+<!--">-->
+<!--    Distribution of pedestrians' initial positions-->
+<!--</li>-->
+
+<!--<li draggable="true" data-value="Evacuation duration" style="-->
+<!--    padding: 15px;-->
+<!--    margin: 8px 0;-->
+<!--    border: 1px solid #ccc;-->
+<!--    border-radius: 6px;-->
+<!--    background: #f5f5f5;-->
+<!--    cursor: move;-->
+<!--">-->
+<!--    Duration of evacuation-->
+<!--</li>-->
+
+
+<!--</ul>-->
+
+<!--&lt;!&ndash; Hidden fields used to store the final ranking &ndash;&gt;-->
+
+<!--<input type="hidden" name="Q9_rank_1" id="Q9_rank_1" >-->
+<!--<input type="hidden" name="Q9_rank_2" id="Q9_rank_2">-->
+<!--<input type="hidden" name="Q9_rank_3" id="Q9_rank_3">-->
+<!--<input type="hidden" name="Q9_rank_4" id="Q9_rank_4">-->
+
+
+<!--<label>-->
+<!--    Other comments:-->
+<!--</label>-->
+<!--<br>-->
+
+<textarea
+    name="Q6_add"
+    rows="4"
+    cols="80"
+    placeholder="Typing the factors you consider important..."
+    style="font-size: 20px;"
+
+></textarea>
+
+<!--<br><br>-->
+
+<script>
+
+const rankingList = document.getElementById("Q9_ranking");
+
+let draggedItem = null;
+
+rankingList.addEventListener("dragstart", function(e) {
+    draggedItem = e.target;
+});
+
+rankingList.addEventListener("dragover", function(e) {
+    e.preventDefault();
+
+    const target = e.target.closest("li");
+
+    if (!target || target === draggedItem) {
+        return;
+    }
+
+    const rect = target.getBoundingClientRect();
+    const offset = e.clientY - rect.top;
+
+    if (offset > rect.height / 2) {
+        target.after(draggedItem);
+    } else {
+        target.before(draggedItem);
+    }
+});
+
+rankingList.addEventListener("dragend", function() {
+    updateQ9Ranking();
+});
+
+function updateQ9Ranking() {
+
+    const items = rankingList.querySelectorAll("li");
+
+    items.forEach(function(item, index) {
+
+        document.getElementById(
+            "Q9_rank_" + (index + 1)
+        ).value = item.dataset.value;
+
+    });
+}
+
+// Set the initial ranking
+updateQ9Ranking();
+</script>
+</div>
+
+    <div class="question">
+<h3> Q7: What degree of pushing do you think you would engage in to get to the exit more quickly in normal, safe circumstances? </h3>
+
+<label> <input type="radio" name="Q7" value="1" style="transform: scale(1.5); margin-right: 5px;" > 1 -- <b> Completely avoid physical contact:</b>  maintaining personal space and avoiding touching others completely </label>
+<br>
+
+<label> <input type="radio" name="Q7" value="2" style="transform: scale(1.5); margin-right: 5px;" > 2 -- <b> Mild contact only: </b> moving closer to others when space is limited but avoiding deliberately making physical contact </label>
+<br>
+
+<label> <input type="radio" name="Q7" value="3" style="transform: scale(1.5); margin-right: 5px;" > 3 -- <b> Occasional body contact:</b>  using gentle body contact to move into small gaps without causing discomfort to others </label>
+<br>
+
+<label> <input type="radio" name="Q7" value="4" style="transform: scale(1.5); margin-right: 5px;" > 4 -- <b> Active squeezing: </b> actively squeezing through available gaps </label>
+<br>
+
+<label> <input type="radio" name="Q7" value="5" style="transform: scale(1.5); margin-right: 5px;" > 5 -- <b> Forceful pushing: </b> deliberately using my body to push past or displace others to gain a more advantageous position and reach the exit sooner </label>
+
+<br><br>
+    </div>
+<div class="question">
+<h3> Q8: Imagine what if it is an emergency in the last question? For example, if there is a fire.  </h3>
+
+<label> <input type="radio" name="Q8" value="1" style="transform: scale(1.5); margin-right: 5px;" > 1 -- <b> Completely avoid physical contact: </b>  maintaining personal space and avoiding touching others completely </label>
+<br>
+
+<label> <input type="radio" name="Q8" value="2" style="transform: scale(1.5); margin-right: 5px;" > 2 -- <b> Mild contact only: </b>  moving closer to others when space is limited but avoiding deliberately making physical contact </label>
+<br>
+
+<label> <input type="radio" name="Q8" value="3" style="transform: scale(1.5); margin-right: 5px;" > 3 -- <b> Occasional body contact: </b>   using gentle body contact to move into small gaps without causing discomfort to others </label>
+<br>
+
+<label> <input type="radio" name="Q8" value="4" style="transform: scale(1.5); margin-right: 5px;" > 4 -- <b> Active squeezing: </b>  actively squeezing through available gaps </label>
+<br>
+
+<label> <input type="radio" name="Q8" value="5" style="transform: scale(1.5); margin-right: 5px;" > 5 -- <b> Forceful pushing: </b>  deliberately using my body to push past or displace others to gain a more advantageous position and reach the exit sooner </label>
+</div>
+<!--<br><br>-->
+
+<!--<h3>-->
+<!--    Q12: If you were in the middle of a crowd in the Scenario A, would you push?-->
+<!--</h3>-->
+
+
+<!--<table>-->
+<!--<tr>-->
+<!--    <td align="center">-->
+<!--        <img src="/static/030.gif" width="450">-->
+<!--        <br> <b>Scenarios A</b>-->
+<!--    </td>-->
+<!--    <td width="50"></td>-->
+
+<!--    <td align="center">-->
+<!--        <img src="/static/040.gif" width="450">-->
+<!--        <br><b>Scenarios B</b>-->
+<!--    </td>-->
+<!--</tr>-->
+<!--</table>-->
+
+
+<!--<label>-->
+<!--    <input type="radio" name="Q12" value="1">-->
+<!--    A. Definitely push back-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="radio" name="Q12" value="2">-->
+<!--    B. Probably push back-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="radio" name="Q12" value="3">-->
+<!--    C. Neither likely nor unlikely-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="radio" name="Q12" value="4">-->
+<!--    D. Probably not push back-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="radio" name="Q12" value="5">-->
+<!--    E. Definitely not push back-->
+<!--</label>-->
+
+<!--<br><br>-->
+
+
+<!--<h3>-->
+<!--    Q13: If you were in the middle of a crowd in the Scenario B, would you push?-->
+<!--</h3>-->
+
+
+<!--<table>-->
+<!--<tr>-->
+<!--    <td align="center">-->
+<!--        <img src="/static/030.gif" width="450">-->
+<!--        <br> <b>Scenarios A</b>-->
+<!--    </td>-->
+<!--    <td width="50"></td>-->
+
+<!--    <td align="center">-->
+<!--        <img src="/static/040.gif" width="450">-->
+<!--        <br><b>Scenarios B</b>-->
+<!--    </td>-->
+<!--</tr>-->
+<!--</table>-->
+
+
+<!--<label>-->
+<!--    <input type="radio" name="Q13" value="1">-->
+<!--    A. Definitely push back-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="radio" name="Q13" value="2">-->
+<!--    B. Probably push back-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="radio" name="Q13" value="3">-->
+<!--    C. Neither likely nor unlikely-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="radio" name="Q13" value="4">-->
+<!--    D. Probably not push back-->
+<!--</label>-->
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="radio" name="Q13" value="5">-->
+<!--    E. Definitely not push back-->
+<!--</label>-->
+
+<!--<br><br>-->
+
+<div class="question">
+<h3>Q9: In which scenario are you more likely to push someone? </h3>
+
+<table>
+<tr>
+    <td align="center">
+        <img src="/static/030.gif" width="450"><br>
+        <label>
+            <input type="radio" name="Q9" value="Scenarios A" style="transform: scale(1.5); margin-right: 5px;" >
+            Scenarios A
+        </label>
+    </td>
+
+    <td width="50"></td>
+
+    <td align="center">
+        <img src="/static/040.gif" width="450"><br>
+        <label>
+            <input type="radio" name="Q9" value="Scenarios B" style="transform: scale(1.5); margin-right: 5px;">
+            Scenarios B
+        </label>
+    </td>
+</tr>
+</table>
+
+<br>
+
+<label>
+    Reason:
+</label>
+
+<br>
+<textarea
+    name="Q9reason"
+    rows="4"
+    cols="80"
+    placeholder="Please explain why you chose this scenario..."
+    style="font-size: 20px;"
+
+></textarea>
+</div>
+<!--<br><br>-->
+<div class="question">
+<h3>
+    Q10: If you were one of them, in what situation do you think you would be more likely to push in normal, safe circumstances?
+</h3>
+
+<!--    <img src="/static/Q13a.png" width="450"><br>-->
+<!--    <img src="/static/Q13b.png" width="450"><br>-->
+<!--    <img src="/static/Q13c.png" width="450"><br>-->
+
+<div style="text-align:">
+    <img id="Q10_image" width="450" src="">
+</div>
+
+<label> <input type="radio" name="Q10" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
+<br>
+<label> <input type="radio" name="Q10" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
+<br>
+<label> <input type="radio" name="Q10" value="Neither" style="transform: scale(1.5); margin-right: 5px;" > Neither </label>
+
+<!--<br><br>-->
+
+<!--<b>Reason:</b>-->
+
+<!--<br><br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox"-->
+<!--           name="Q13_reason"-->
+<!--           value="Local density">-->
+<!--    Local density-->
+<!--</label>-->
+
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox"-->
+<!--           name="Q13_reason"-->
+<!--           value="Distance from exit">-->
+<!--    Distance from exit-->
+<!--</label>-->
+
+<!--<br><br>-->
+
+<!--<label>-->
+<!--   Reason:-->
+<!--</label>-->
+<!--<br>-->
+<!--<textarea-->
+<!--    name="Q10_reason"-->
+<!--    rows="3"-->
+<!--    cols="70"-->
+<!--    placeholder="Please explain why you chose this person..."-->
+<!--    style="font-size: 20px;"-->
+<!--&gt;</textarea>-->
+
+<!--&lt;!&ndash; Store the randomly selected image &ndash;&gt;-->
+
+<input type="hidden"
+    name="Q10_image"
+    id="Q10_image_value">
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Three possible scenario images
+    const images = [
+        {
+            file: "/static/Q10a.png",
+            name: "Q10a"
+        },
+        {
+            file: "/static/Q10b.png",
+            name: "Q10b"
+        },
+        {
+            file: "/static/Q10c.png",
+            name: "Q10c"
+        }
+    ];
+
+    // Randomly select one image
+    const randomIndex = Math.floor(Math.random() * images.length);
+
+    const selectedImage = images[randomIndex];
+
+    // Display the selected image
+    document.getElementById("Q10_image").src = selectedImage.file;
+
+    // Store the image name in a hidden field
+    document.getElementById("Q10_image_value").value =
+        selectedImage.name;
+
+});
+
+</script>
+<!--<br><br>-->
+</div>
+<div class="question">
+<h3>
+    Q11: Imagine what if it is an emergency in the last question? For example, if there is a fire.
+</h3>
+
+<label> <input type="radio" name="Q11" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
+<br>
+<label> <input type="radio" name="Q11" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
+<br>
+<label> <input type="radio" name="Q11" value="Neither" style="transform: scale(1.5); margin-right: 5px;" > Neither </label>
+<!--<br><br>-->
+</div>
+<div class="question">
+<h3>
+    Q12: If you were one of them, in what situation do you think you would be more likely to push in normal, safe circumstances?
+</h3>
+
+<!--    <img src="/static/Q15a.png" width="450"><br>-->
+<!--    <img src="/static/Q15b.png" width="450"><br>-->
+<!--    <img src="/static/Q15c.png" width="450"><br>-->
+
+<div style="text-align:">
+    <img id="Q12_image" width="450" src="">
+</div>
+
+<label> <input type="radio" name="Q12" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
+<br>
+<label> <input type="radio" name="Q12" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
+<br>
+<label> <input type="radio" name="Q12" value="Neither" style="transform: scale(1.5); margin-right: 5px;" > Neither </label>
+
+<!--<br><br>-->
+
+<!--<b>Reason:</b>-->
+
+<!--<br><br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox"-->
+<!--           name="Q13_reason"-->
+<!--           value="Local density">-->
+<!--    Local density-->
+<!--</label>-->
+
+<!--<br>-->
+
+<!--<label>-->
+<!--    <input type="checkbox"-->
+<!--           name="Q13_reason"-->
+<!--           value="Distance from exit">-->
+<!--    Distance from exit-->
+<!--</label>-->
+
+<!--<br><br>-->
+
+<!--<label>-->
+<!--   Reason:-->
+<!--</label>-->
+<!--<br>-->
+<!--<textarea-->
+<!--    name="Q12_reason"-->
+<!--    rows="3"-->
+<!--    cols="70"-->
+<!--    placeholder="Please explain why you chose this person..."-->
+<!--    style="font-size: 20px;"-->
+<!--&gt;</textarea>-->
+
+<!-- Store the randomly selected image -->
+
+<input type="hidden"
+    name="Q12_image"
+    id="Q12_image_value">
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Three possible scenario images
+    const images = [
+        {
+            file: "/static/Q12a.png",
+            name: "Q12a"
+        },
+        {
+            file: "/static/Q12b.png",
+            name: "Q12b"
+        },
+        {
+            file: "/static/Q12c.png",
+            name: "Q12c"
+        }
+    ];
+
+    // Randomly select one image
+    const randomIndex = Math.floor(Math.random() * images.length);
+
+    const selectedImage = images[randomIndex];
+
+    // Display the selected image
+    document.getElementById("Q12_image").src = selectedImage.file;
+
+    // Store the image name in a hidden field
+    document.getElementById("Q12_image_value").value =
+        selectedImage.name;
+
+});
+
+</script>
+<!--<br><br>-->
+</div>
+<div class="question">
+<h3>
+    Q13: Imagine what if it is an emergency in the last question? For example, if there is a fire.
+</h3>
+
+<label> <input type="radio" name="Q13" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
+<br>
+<label> <input type="radio" name="Q13" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
+<br>
+<label> <input type="radio" name="Q13" value="Neither" style="transform: scale(1.5); margin-right: 5px;" > Neither </label>
+<!--<br><br>-->
+</div>
+    <div class="question">
+
+<h3>
+    Q14: If you were one of them, in what area do you think you would be more likely to push in normal, safe circumstances?
+</h3>
+
+<table>
+<tr>
+    <td align="center">
+        <img src="/static/Q14B.png" width="600">
+        <br>
+    </td>
+
+</tr>
+</table>
+
+
+<label> <input type="radio" name="Q14" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
+<br>
+<label> <input type="radio" name="Q14" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
+<br>
+<label> <input type="radio" name="Q14" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>
+<br>
+<label> <input type="radio" name="Q14" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>
+<br>
+<label> <input type="radio" name="Q14" value="E" style="transform: scale(1.5); margin-right: 5px;" > E </label>
+<br>
+<label> <input type="radio" name="Q14" value="F" style="transform: scale(1.5); margin-right: 5px;" > F  </label>
+<br>
+<label> <input type="radio" name="Q14" value="C" style="transform: scale(1.5); margin-right: 5px;" > G </label>
+<br>
+<label> <input type="radio" name="Q14" value="D" style="transform: scale(1.5); margin-right: 5px;" > H  </label>
+<br>
+<label> <input type="radio" name="Q14" value="E" style="transform: scale(1.5); margin-right: 5px;" > I </label>
+<br>
+<label> <input type="radio" name="Q14" value="F" style="transform: scale(1.5); margin-right: 5px;" > J  </label>
+<br>
+<label> <input type="radio" name="Q14" value="D" style="transform: scale(1.5); margin-right: 5px;" > K  </label>
+<br>
+<label> <input type="radio" name="Q14" value="E" style="transform: scale(1.5); margin-right: 5px;" > L </label>
+<!--<br><br>-->
+    </div>
+<!--<label>-->
+<!--   Reason:-->
+<!--</label>-->
+<!--<br>-->
+<!--<textarea-->
+<!--    name="Q14_reason"-->
+<!--    rows="3"-->
+<!--    cols="70"-->
+<!--    placeholder="Please explain why you chose this person..."-->
+<!--    style="font-size: 20px;"-->
+<!--&gt;</textarea>-->
+<!--<br><br>-->
+<div class="question">
+<h3>
+    Q15: Imagine what if it is an emergency in the last question? For example, if there is a fire.
+</h3>
+<label> <input type="radio" name="Q15" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
+<br>
+<label> <input type="radio" name="Q15" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
+<br>
+<label> <input type="radio" name="Q15" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>
+<br>
+<label> <input type="radio" name="Q15" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>
+<br>
+<label> <input type="radio" name="Q15" value="E" style="transform: scale(1.5); margin-right: 5px;" > E </label>
+<br>
+<label> <input type="radio" name="Q15" value="F" style="transform: scale(1.5); margin-right: 5px;" > F  </label>
+<br>
+<label> <input type="radio" name="Q15" value="C" style="transform: scale(1.5); margin-right: 5px;" > G </label>
+<br>
+<label> <input type="radio" name="Q15" value="D" style="transform: scale(1.5); margin-right: 5px;" > H  </label>
+<br>
+<label> <input type="radio" name="Q15" value="E" style="transform: scale(1.5); margin-right: 5px;" > I </label>
+<br>
+<label> <input type="radio" name="Q15" value="F" style="transform: scale(1.5); margin-right: 5px;" > J  </label>
+<br>
+<label> <input type="radio" name="Q15" value="D" style="transform: scale(1.5); margin-right: 5px;" > K  </label>
+<br>
+<label> <input type="radio" name="Q15" value="E" style="transform: scale(1.5); margin-right: 5px;" > L </label>
+<!--<br>-->
+<!--<br><br>-->
+</div>
+
+
+<div class="question">
+<h3>
+    Q16: When selecting the position or area before, what factors did you take into account?
+</h3>
+
+<textarea
+    name="Q16_reason"
+    rows="4"
+    cols="80"
+    placeholder="Typing the factors you consider important..."
+    style="font-size: 20px;"
+
+></textarea>
+</div>
+
+<br>
+<div style="text-align: right; margin-top: 30px;">
+    <button type="submit" style="
+        font-size: 20px;
+        font-family: inherit;
+        padding: 15px 45px;
+        width: 200px;
+    ">
+        <b>Submit</b>
+    </button>
+</div>
+</form>
+<style>
+.question.validation-error {
+    border: 2px solid #e74c3c !important;
+    background-color: #fff5f5 !important;
+}
+
+.validation-message {
+    color: #e74c3c;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    font-size: 20px;
+}
+
+.question.validation-error h3 {
+    color: #c0392b;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.querySelector('form[method="POST"]');
+
+    if (!form) {
+        console.error("Survey form not found.");
+        return;
+    }
+
+    form.addEventListener("submit", function (event) {
+
+        let firstUnansweredQuestion = null;
+        let unansweredCount = 0;
+
+        const questions = form.querySelectorAll(".question");
+
+        questions.forEach(function (question) {
+
+            // Remove previous validation state
+            question.classList.remove("validation-error");
+
+            const oldMessage = question.querySelector(".validation-message");
+            if (oldMessage) {
+                oldMessage.remove();
+            }
+
+            // Skip questions that are currently hidden
+            const style = window.getComputedStyle(question);
+            if (style.display === "none" || style.visibility === "hidden") {
+                return;
+            }
+
+            let unanswered = false;
+
+            /*
+             * 1. Radio questions
+             * At least one radio button must be selected.
+             */
+            const radios = question.querySelectorAll('input[type="radio"]');
+
+            if (radios.length > 0) {
+                const checkedRadio = question.querySelector(
+                    'input[type="radio"]:checked'
+                );
+
+                if (!checkedRadio) {
+                    unanswered = true;
+                }
+            }
+
+            /*
+             * 2. Checkbox questions
+             * At least one checkbox must be selected.
+             *
+             * Q5_reason is conditional:
+             * it is required ONLY when Q5 = Yes.
+             */
+            const checkboxes = question.querySelectorAll(
+                'input[type="checkbox"]'
+            );
+
+            if (checkboxes.length > 0 && !unanswered) {
+
+                const isQ5ReasonList =
+                    question.querySelector("#Q5_reasons") !== null;
+
+                if (isQ5ReasonList) {
+
+                    const q5Yes = form.querySelector(
+                        'input[name="Q5"][value="Yes"]:checked'
+                    );
+
+                    if (q5Yes) {
+
+                        const checkedReasons = question.querySelectorAll(
+                            'input[name="Q5_reason"]:checked'
+                        );
+
+                        if (checkedReasons.length === 0) {
+                            unanswered = true;
+                        }
+                    }
+
+                } else {
+
+                    const checkedBoxes = question.querySelectorAll(
+                        'input[type="checkbox"]:checked'
+                    );
+
+                    if (checkedBoxes.length === 0) {
+                        unanswered = true;
+                    }
+                }
+            }
+
+            /*
+             * 3. Text input / textarea
+             *
+             * Empty optional fields are ignored.
+             * In this survey, the textareas currently inside
+             * question blocks are treated as required.
+             *
+             * Q5 conditional reasons are handled above.
+             */
+            const textInputs = question.querySelectorAll(
+                'input[type="text"], input[type="number"], input[type="email"], textarea'
+            );
+
+            if (textInputs.length > 0 && !unanswered) {
+
+                for (const input of textInputs) {
+
+                    // Ignore hidden fields used to store random images/rankings
+                    if (
+                        input.type === "hidden" ||
+                        input.offsetParent === null
+                    ) {
+                        continue;
+                    }
+
+                    if (input.value.trim() === "") {
+                        unanswered = true;
+                        break;
+                    }
+                }
+            }
+
+            /*
+             * 4. Select
+             */
+            const selects = question.querySelectorAll("select");
+
+            if (selects.length > 0 && !unanswered) {
+
+                for (const select of selects) {
+
+                    if (select.value.trim() === "") {
+                        unanswered = true;
+                        break;
+                    }
+                }
+            }
+
+            /*
+             * Show error
+             */
+            if (unanswered) {
+
+                unansweredCount++;
+
+                question.classList.add("validation-error");
+
+                const message = document.createElement("div");
+                message.className = "validation-message";
+                message.textContent =
+                    "Please answer this question before submitting.";
+
+                const heading = question.querySelector("h3");
+
+                if (heading) {
+                    heading.insertAdjacentElement("afterend", message);
+                } else {
+                    question.insertBefore(
+                        message,
+                        question.firstChild
+                    );
+                }
+
+                if (!firstUnansweredQuestion) {
+                    firstUnansweredQuestion = question;
+                }
+            }
+        });
+
+
+        /*
+         * Stop submission if any question is unanswered.
+         */
+        if (firstUnansweredQuestion) {
+
+            event.preventDefault();
+
+            firstUnansweredQuestion.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            setTimeout(function () {
+
+                const heading =
+                    firstUnansweredQuestion.querySelector("h3");
+
+                if (heading) {
+                    alert(
+                        "Please answer all required questions.\n\n" +
+                        "The first unanswered question is:\n" +
+                        heading.textContent.trim()
+                    );
+                } else {
+                    alert(
+                        "Please answer all required questions."
+                    );
+                }
+
+            }, 300);
+        }
+
+    });
+
+
+    /*
+     * Remove the red warning as soon as the user answers
+     * a radio/checkbox/select question.
+     */
+    form.addEventListener("change", function (event) {
+
+        const question =
+            event.target.closest(".question");
+
+        if (!question) {
+            return;
+        }
+
+        let answered = false;
+
+        if (
+            event.target.matches(
+                'input[type="radio"], input[type="checkbox"]'
+            )
+        ) {
+            answered =
+                question.querySelector(
+                    'input[type="radio"]:checked, input[type="checkbox"]:checked'
+                ) !== null;
+        }
+
+        if (event.target.matches("select")) {
+            answered = event.target.value.trim() !== "";
+        }
+
+        if (answered) {
+            clearQuestionError(question);
+        }
+
+        /*
+         * If Q5 changes to No, clear the Q5 reason error
+         * because the reason question is no longer required.
+         */
+        if (
+            event.target.matches('input[name="Q5"]') &&
+            event.target.value === "No"
+        ) {
+            const reasonsQuestion =
+                document.getElementById("Q5_reasons");
+
+            if (reasonsQuestion) {
+                clearQuestionError(
+                    reasonsQuestion.closest(".question")
+                );
+            }
+        }
+    });
+
+
+    /*
+     * Remove the red warning when text is entered.
+     */
+    form.addEventListener("input", function (event) {
+
+        const question =
+            event.target.closest(".question");
+
+        if (!question) {
+            return;
+        }
+
+        if (
+            event.target.matches(
+                'input[type="text"], input[type="number"], input[type="email"], textarea'
+            )
+        ) {
+
+            if (event.target.value.trim() !== "") {
+                clearQuestionError(question);
+            }
+        }
+    });
+
+
+    function clearQuestionError(question) {
+
+        if (!question) {
+            return;
+        }
+
+        question.classList.remove("validation-error");
+
+        const message =
+            question.querySelector(".validation-message");
+
+        if (message) {
+            message.remove();
+        }
+    }
+
+});
+</script>
+
+</body>
+
