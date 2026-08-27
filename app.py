@@ -48,7 +48,7 @@ def init_db():
             Q9reason TEXT,
             Q10 TEXT,
             Q10_image TEXT,
-            Q10_reason TEXT,
+            # Q10_reason TEXT,
             Q11 TEXT,
             Q12 TEXT,
             Q12_image TEXT,
@@ -91,7 +91,7 @@ def save_to_database(data):
             Q9reason,
             Q10,
             Q10_image,
-            Q10_reason,
+            # Q10_reason,
             Q11,
             Q12,
             Q12_image,
@@ -117,7 +117,7 @@ def save_to_database(data):
             %(Q9reason)s,
             %(Q10)s,
             %(Q10_image)s,
-            %(Q10_reason)s,
+            # %(Q10_reason)s,
             %(Q11)s,
             %(Q12)s,
             %(Q12_image)s,
@@ -186,7 +186,7 @@ def survey():
 
             'Q10_image': request.form.get('Q10_image'),
 
-            'Q10_reason': request.form.get('Q10_reason'),
+            # 'Q10_reason': request.form.get('Q10_reason'),
 
             'Q11': request.form.get('Q11'),
 
