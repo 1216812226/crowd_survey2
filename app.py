@@ -42,8 +42,6 @@ def init_db():
             Q5 TEXT,
             Q5_reason TEXT,
             Q6_add TEXT,
-            Q7 TEXT,
-            Q8 TEXT,
             Q9 TEXT,
             Q9reason TEXT,
             Q10 TEXT,
@@ -85,8 +83,6 @@ def save_to_database(data):
             Q5,
             Q5_reason,
             Q6_add,
-            Q7,
-            Q8,
             Q9,
             Q9reason,
             Q10,
@@ -111,8 +107,6 @@ def save_to_database(data):
             %(Q5)s,
             %(Q5_reason)s,
             %(Q6_add)s,
-            %(Q7)s,
-            %(Q8)s,
             %(Q9)s,
             %(Q9reason)s,
             %(Q10)s,
@@ -171,10 +165,6 @@ def survey():
             ),
 
             'Q6_add': request.form.get('Q6_add'),
-
-            'Q7': request.form.get('Q7'),
-
-            'Q8': request.form.get('Q8'),
 
             'Q9': ', '.join(
                 request.form.getlist('Q9')
