@@ -44,15 +44,15 @@ def init_db():
             Q6_add TEXT,
             Q7 TEXT,
             Q7_reason TEXT,
-            Q8 TEXT,
-            Q8_image TEXT,
-            Q9 TEXT,
             Q10 TEXT,
             Q10_image TEXT,
             Q11 TEXT,
             Q12 TEXT,
+            Q12_image TEXT,
             Q13 TEXT,
-            Q14_reason TEXT
+            Q14 TEXT,
+            Q15 TEXT,
+            Q16_reason TEXT
         )
     """)
 
@@ -136,55 +136,25 @@ def survey():
 
         data = {
             'submit_time': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-
             'age': request.form.get('age'),
-
             'gender': request.form.get('gender'),
-
             'Q1': request.form.get('Q1'),
-
-            'Q2': ', '.join(
-                request.form.getlist('Q2')
-            ),
-
-            'Q3': ', '.join(
-                request.form.getlist('Q3')
-            ),
-
-            'Q4': ', '.join(
-                request.form.getlist('Q4')
-            ),
-
+            'Q2': request.form.get('Q2'),
+            'Q3': request.form.get('Q3'),
+            'Q4': request.form.get('Q4'),
             'Q5': request.form.get('Q5'),
-
-            'Q5_reason': ', '.join(
-                request.form.getlist('Q5_reason')
-            ),
-
+            'Q5_reason': ', '.join(request.form.getlist('Q5_reason')),
             'Q6_add': request.form.get('Q6_add'),
-
-            'Q7': ', '.join(
-                request.form.getlist('Q9')
-            ),
-
+            'Q7': request.form.get('Q7'),
             'Q7_reason': request.form.get('Q7_reason'),
-
             'Q10': request.form.get('Q10'),
-
             'Q10_image': request.form.get('Q10_image'),
-
             'Q11': request.form.get('Q11'),
-
             'Q12': request.form.get('Q12'),
-
             'Q12_image': request.form.get('Q12_image'),
-
             'Q13': request.form.get('Q13'),
-
             'Q14': request.form.get('Q14'),
-
             'Q15': request.form.get('Q15'),
-
             'Q16_reason': request.form.get('Q16_reason'),
         }
 
@@ -201,7 +171,6 @@ def survey():
 
 @app.route('/thankyou')
 def thankyou():
-
     return render_template('thankyou.html')
 
 
@@ -211,28 +180,14 @@ def thankyou():
 
 @app.route('/admin')
 def admin():
-
     conn = get_db_connection()
-
-    df = pd.read_sql_query(
-        """
-        SELECT *
-        FROM responses
-        ORDER BY id DESC
-        """,
-        conn
-    )
-
+    df = pd.read_sql_query("SELECT * FROM responses ORDER BY id DESC", conn)
     conn.close()
 
     if df.empty:
         return "No responses yet."
 
-    return df.to_html(
-        index=False,
-        classes="table table-striped",
-        border=1
-    )
+    return df.to_html(index=False, classes="table table-striped", border=1)
 
 
 # =========================================================
@@ -241,38 +196,18 @@ def admin():
 
 @app.route('/export/excel')
 def export_excel():
-
     conn = get_db_connection()
-
-    df = pd.read_sql_query(
-        """
-        SELECT *
-        FROM responses
-        ORDER BY id
-        """,
-        conn
-    )
-
+    df = pd.read_sql_query("SELECT * FROM responses ORDER BY id", conn)
     conn.close()
 
     if df.empty:
         return "No data found."
 
     output = BytesIO()
-
-    with pd.ExcelWriter(
-        output,
-        engine='openpyxl'
-    ) as writer:
-
-        df.to_excel(
-            writer,
-            index=False,
-            sheet_name='Responses'
-        )
+    with pd.ExcelWriter(output, engine='openpyxl') as writer:
+        df.to_excel(writer, index=False, sheet_name='Responses')
 
     output.seek(0)
-
     return send_file(
         output,
         as_attachment=True,
@@ -292,18 +227,6 @@ except Exception as e:
     print(e)
 
 
-# =========================================================
-# Local development
-# =========================================================
-
 if __name__ == '__main__':
-
-    port = int(
-        os.environ.get("PORT", 5000)
-    )
-
-    app.run(
-        host="0.0.0.0",
-        port=port,
-        debug=False
-    )
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
