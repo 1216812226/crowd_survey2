@@ -44,15 +44,15 @@ def init_db():
             Q6_add TEXT,
             Q7 TEXT,
             Q7_reason TEXT,
+            Q8 TEXT,
+            Q8_image TEXT,
+            Q9 TEXT,
             Q10 TEXT,
             Q10_image TEXT,
             Q11 TEXT,
             Q12 TEXT,
-            Q12_image TEXT,
             Q13 TEXT,
-            Q14 TEXT,
-            Q15 TEXT,
-            Q16_reason TEXT
+            Q14_reason TEXT
         )
     """)
 
@@ -64,7 +64,6 @@ def init_db():
 # =========================================================
 # Save survey response to PostgreSQL
 # =========================================================
-
 def save_to_database(data):
 
     conn = get_db_connection()
@@ -84,15 +83,15 @@ def save_to_database(data):
             Q6_add,
             Q7,
             Q7_reason,
-            Q8,
-            Q8_image,
-            Q9,
             Q10,
             Q10_image,
             Q11,
             Q12,
+            Q12_image,
             Q13,
-            Q14_reason
+            Q14,
+            Q15,
+            Q16_reason
         )
         VALUES (
             %(submit_time)s,
