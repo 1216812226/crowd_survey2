@@ -43,16 +43,16 @@ def init_db():
             Q5_reason TEXT,
             Q6_add TEXT,
             Q7 TEXT,
-            Q7 reason TEXT,
+            Q7_reason TEXT,
+            Q8 TEXT,
+            Q8_image TEXT,
+            Q9 TEXT,
             Q10 TEXT,
             Q10_image TEXT,
             Q11 TEXT,
             Q12 TEXT,
-            Q12_image TEXT,
             Q13 TEXT,
-            Q14 TEXT,
-            Q15 TEXT,
-            Q16_reason TEXT
+            Q14_reason TEXT
         )
     """)
 
