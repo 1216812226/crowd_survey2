@@ -163,15 +163,11 @@ def survey():
 
             'Q6_add': request.form.get('Q6_add'),
 
-            'Q7': request.form.get('Q7'),
-
-            'Q8': request.form.get('Q8'),
-
-            'Q9': ', '.join(
+            'Q7': ', '.join(
                 request.form.getlist('Q9')
             ),
 
-            'Q9reason': request.form.get('Q9reason'),
+            'Q7_reason': request.form.get('Q7_reason'),
 
             'Q10': request.form.get('Q10'),
 
