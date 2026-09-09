@@ -84,15 +84,15 @@ def save_to_database(data):
             Q6_add,
             Q7,
             Q7_reason,
+            Q8,
+            Q8_image,
+            Q9,
             Q10,
             Q10_image,
             Q11,
             Q12,
-            Q12_image,
             Q13,
-            Q14,
-            Q15,
-            Q16_reason
+            Q14_reason
         )
         VALUES (
             %(submit_time)s,
