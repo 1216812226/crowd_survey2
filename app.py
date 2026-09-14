@@ -280,7 +280,14 @@ def export_excel():
 # Initialize database
 # =========================================================
 
-init_db()
+try:
+    init_db()
+except Exception as e:
+    print("========================================")
+    print("DATABASE INITIALIZATION FAILED")
+    print("========================================")
+    print(e)
+    raise
 
 
 # =========================================================
