@@ -47,12 +47,8 @@ def init_db():
             Q9 TEXT,
             Q9reason TEXT,
             Q10 TEXT,
-            Q10_image TEXT,
-            Q10_reason TEXT,
             Q11 TEXT,
             Q12 TEXT,
-            Q12_image TEXT,
-            Q13 TEXT,
             Q14 TEXT,
             Q15 TEXT,
             Q16_reason TEXT
@@ -90,12 +86,8 @@ def save_to_database(data):
             Q9,
             Q9reason,
             Q10,
-            Q10_image,
-            Q10_reason,
             Q11,
             Q12,
-            Q12_image,
-            Q13,
             Q14,
             Q15,
             Q16_reason
@@ -116,12 +108,8 @@ def save_to_database(data):
             %(Q9)s,
             %(Q9reason)s,
             %(Q10)s,
-            %(Q10_image)s,
-            %(Q10_reason)s,
             %(Q11)s,
             %(Q12)s,
-            %(Q12_image)s,
-            %(Q13)s,
             %(Q14)s,
             %(Q15)s,
             %(Q16_reason)s
@@ -184,17 +172,9 @@ def survey():
 
             'Q10': request.form.get('Q10'),
 
-            'Q10_image': request.form.get('Q10_image'),
-
-            'Q10_reason': request.form.get('Q10_reason'),
-
             'Q11': request.form.get('Q11'),
 
             'Q12': request.form.get('Q12'),
-
-            'Q12_image': request.form.get('Q12_image'),
-
-            'Q13': request.form.get('Q13'),
 
             'Q14': request.form.get('Q14'),
 
@@ -322,3 +302,5 @@ if __name__ == '__main__':
         port=port,
         debug=False
     )
+
+

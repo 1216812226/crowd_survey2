@@ -935,229 +935,995 @@ updateQ9Ranking();
 ></textarea>
 </div>
 <!--<br><br>-->
+
+
 <div class="question">
 <h3>
-    Q10: Which of them do you think would be more likely to to push in normal, safe circumstances?
+    Q10: Please hover over the image and click directly on a person to select their position:
 </h3>
 
-<!--    <img src="/static/Q13a.png" width="450"><br>-->
-<!--    <img src="/static/Q13b.png" width="450"><br>-->
-<!--    <img src="/static/Q13c.png" width="450"><br>-->
+    <!-- 交互式容器 -->
+    <div class="interactive-image-container">
+        <!-- 底图 (使用 ViewBox 坐标比例) -->
+        <img id="base-image" src="/static/Q10cc.png" alt="Pedestrian Crowd">
 
-<div style="text-align:">
-    <img id="Q10_image" width="450" src="">
+        <!-- 叠加在图片上方的 SVG 高亮区域 -->
+        <svg class="interactive-svg-overlay" viewBox="0 0 1000 800">
+            <!-- 行人 A 的交互高亮区域 (圆形/椭圆) -->
+           <!-- 1. 下方人群 (P1 ~ P5) -->
+            <g class="pedestrian-spot" data-person="Person P1" onclick="selectPedestrian('Person P1', this)">
+                <circle cx="610" cy="710" r="18" class="highlight-shape" />
+                <text x="610" y="715" class="person-label">P1</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P2" onclick="selectPedestrian('Person P2', this)">
+                <circle cx="590" cy="635" r="18" class="highlight-shape" />
+                <text x="590" y="640" class="person-label">P2</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P3" onclick="selectPedestrian('Person P3', this)">
+                <circle cx="688" cy="680" r="18" class="highlight-shape" />
+                <text x="688" y="685" class="person-label">P3</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P4" onclick="selectPedestrian('Person P4', this)">
+                <circle cx="600" cy="580" r="18" class="highlight-shape" />
+                <text x="600" y="585" class="person-label">P4</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P5" onclick="selectPedestrian('Person P5', this)">
+                <circle cx="655" cy="635" r="18" class="highlight-shape" />
+                <text x="655" y="640" class="person-label">P5</text>
+            </g>
+
+            <!-- 2. 中部核心拥挤人群 (P6 ~ P20) -->
+            <g class="pedestrian-spot" data-person="Person P6" onclick="selectPedestrian('Person P6', this)">
+                <circle cx="690" cy="598" r="18" class="highlight-shape" />
+                <text x="690" y="603" class="person-label">P6</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P7" onclick="selectPedestrian('Person P7', this)">
+                <circle cx="650" cy="545" r="18" class="highlight-shape" />
+                <text x="650" y="550" class="person-label">P7</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P8" onclick="selectPedestrian('Person P8', this)">
+                <circle cx="560" cy="525" r="18" class="highlight-shape" />
+                <text x="560" y="530" class="person-label">P8</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P9" onclick="selectPedestrian('Person P9', this)">
+                <circle cx="462" cy="475" r="18" class="highlight-shape" />
+                <text x="462" y="480" class="person-label">P9</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P10" onclick="selectPedestrian('Person P10', this)">
+                <circle cx="560" cy="460" r="18" class="highlight-shape" />
+                <text x="560" y="465" class="person-label">P10</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P11" onclick="selectPedestrian('Person P11', this)">
+                <circle cx="512" cy="430" r="18" class="highlight-shape" />
+                <text x="512" y="435" class="person-label">P11</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P12" onclick="selectPedestrian('Person P12', this)">
+                <circle cx="640" cy="488" r="18" class="highlight-shape" />
+                <text x="640" y="493" class="person-label">P12</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P13" onclick="selectPedestrian('Person P13', this)">
+                <circle cx="710" cy="509" r="18" class="highlight-shape" />
+                <text x="710" y="514" class="person-label">P13</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P14" onclick="selectPedestrian('Person P14', this)">
+                <circle cx="688" cy="388" r="18" class="highlight-shape" />
+                <text x="688" y="393" class="person-label">P14</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P15" onclick="selectPedestrian('Person P15', this)">
+                <circle cx="690" cy="470" r="18" class="highlight-shape" />
+                <text x="690" y="475" class="person-label">P15</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P16" onclick="selectPedestrian('Person P16', this)">
+                <circle cx="670" cy="310" r="18" class="highlight-shape" />
+                <text x="670" y="315" class="person-label">P16</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P17" onclick="selectPedestrian('Person P17', this)">
+                <circle cx="615" cy="420" r="18" class="highlight-shape" />
+                <text x="615" y="425" class="person-label">P17</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P18" onclick="selectPedestrian('Person P18', this)">
+                <circle cx="585" cy="302" r="18" class="highlight-shape" />
+                <text x="585" y="307" class="person-label">P18</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P19" onclick="selectPedestrian('Person P19', this)">
+                <circle cx="468" cy="400" r="18" class="highlight-shape" />
+                <text x="468" y="405" class="person-label">P19</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P20" onclick="selectPedestrian('Person P20', this)">
+                <circle cx="468" cy="345" r="18" class="highlight-shape" />
+                <text x="468" y="350" class="person-label">P20</text>
+            </g>
+
+            <!-- 3. 左侧与中上区域 (P21 ~ P24) -->
+            <g class="pedestrian-spot" data-person="Person P21" onclick="selectPedestrian('Person P21', this)">
+                <circle cx="545" cy="378" r="18" class="highlight-shape" />
+                <text x="545" y="383" class="person-label">P21</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P22" onclick="selectPedestrian('Person P22', this)">
+                <circle cx="590" cy="375" r="18" class="highlight-shape" />
+                <text x="590" y="380" class="person-label">P22</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P23" onclick="selectPedestrian('Person P23', this)">
+                <circle cx="635" cy="350" r="18" class="highlight-shape" />
+                <text x="635" y="355" class="person-label">P23</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P24" onclick="selectPedestrian('Person P24', this)">
+                <circle cx="522" cy="295" r="18" class="highlight-shape" />
+                <text x="522" y="300" class="person-label">P24</text>
+            </g>
+
+            <!-- 4. 前方疏散口及右侧独立区域 (P25 ~ P29) -->
+            <g class="pedestrian-spot" data-person="Person P25" onclick="selectPedestrian('Person P25', this)">
+                <circle cx="570" cy="235" r="18" class="highlight-shape" />
+                <text x="570" y="240" class="person-label">P25</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P26" onclick="selectPedestrian('Person P26', this)">
+                <circle cx="632" cy="230" r="18" class="highlight-shape" />
+                <text x="632" y="235" class="person-label">P26</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P27" onclick="selectPedestrian('Person P27', this)">
+                <circle cx="699" cy="250" r="18" class="highlight-shape" />
+                <text x="699" y="255" class="person-label">P27</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P28" onclick="selectPedestrian('Person P28', this)">
+                <circle cx="675" cy="159" r="18" class="highlight-shape" />
+                <text x="675" y="165" class="person-label">P28</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P29" onclick="selectPedestrian('Person P29', this)">
+                <circle cx="590" cy="165" r="18" class="highlight-shape" />
+                <text x="590" y="170" class="person-label">P29</text>
+            </g>
+
+        </svg>
+    </div>
+
+    <!-- 交互提示与当前选择结果展现 -->
+    <div class="selection-status-bar">
+        Current Selection: <span id="display-selected-person">None (Click on person A or B)</span>
+    </div>
+
+    <!-- 提交给 Flask 后端的隐藏字段 -->
+    <input type="hidden" name="Q10" id="Q10_input_field" value="">
 </div>
 
-<label> <input type="radio" name="Q10" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
-<br>
-<label> <input type="radio" name="Q10" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
-<br>
-<label> <input type="radio" name="Q10" value="Neither" style="transform: scale(1.5); margin-right: 5px;" > Neither </label>
-<br>
-<input type="radio" name="Q10" value="Both" style="transform: scale(1.5); margin-right: 5px;"> Both <br>
+<!-- 专属 CSS 样式表 -->
+<style>
+.interactive-image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 650px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
-<!--<br><br>-->
+#base-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-<!--<b>Reason:</b>-->
+/* SVG 绝对定位叠加在图片最上层 */
+.interactive-svg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+}
 
-<!--<br><br>-->
+/* 初始高亮形状：虚线透明圈 */
+.highlight-shape {
+    fill: rgba(231, 76, 60, 0.2);
+    stroke: #ffffff;
+    stroke-width: 3;
+    stroke-dasharray: 4;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
 
-<!--<label>-->
-<!--    <input type="checkbox"-->
-<!--           name="Q13_reason"-->
-<!--           value="Local density">-->
-<!--    Local density-->
-<!--</label>-->
+.person-label {
+    fill: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-anchor: middle;
+    pointer-events: none; /* 让鼠标穿透文本，直接触发下方图形点击 */
+}
 
-<!--<br>-->
+/* 悬停 (Hover) 高亮效果 */
+.pedestrian-spot:hover .highlight-shape {
+    fill: rgba(231, 76, 60, 0.6);
+    stroke: #ffffff;
+    stroke-width: 4;
+    stroke-dasharray: 0; /* 变成实线 */
+    transform: fill-box;
+    transform-origin: center;
+}
 
-<!--<label>-->
-<!--    <input type="checkbox"-->
-<!--           name="Q13_reason"-->
-<!--           value="Distance from exit">-->
-<!--    Distance from exit-->
-<!--</label>-->
+/* 选中 (Selected) 状态的高亮效果 */
+.pedestrian-spot.selected .highlight-shape {
+    fill: rgba(46, 204, 113, 0.75) !important; /* 变为亮绿色 */
+    stroke: #27ae60 !important;
+    stroke-width: 5 !important;
+    stroke-dasharray: 0 !important;
+}
 
-<!--<br><br>-->
+/* 底部状态栏前缀样式（红色） */
+.selection-status-bar {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #c0392b;
+}
 
-<!--<label>-->
-<!--   Reason:-->
-<!--</label>-->
-<!--<br>-->
-<!--<textarea-->
-<!--    name="Q10_reason"-->
-<!--    rows="3"-->
-<!--    cols="70"-->
-<!--    placeholder="Please explain why you chose this person..."-->
-<!--    style="font-size: 20px;"-->
-<!--&gt;</textarea>-->
-
-<!--&lt;!&ndash; Store the randomly selected image &ndash;&gt;-->
-
-<input type="hidden"
-    name="Q10_image"
-    id="Q10_image_value">
+/* 通用匹配：所有题目选中结果文字统一为亮绿色 */
+.selection-status-bar span {
+    color: #27ae60;
+}
+</style>
 
 <script>
+function selectPedestrian(personName, element) {
+    // 1. 获取当前点击所在的题目卡片 (.question)
+    const questionBox = element.closest('.question');
+    if (!questionBox) return;
 
-document.addEventListener("DOMContentLoaded", function () {
+    // 2. 仅清除【当前题目内部】所有行人的选中高亮状态
+    const spots = questionBox.querySelectorAll('.pedestrian-spot');
+    spots.forEach(spot => spot.classList.remove('selected'));
 
-    // Three possible scenario images
-    const images = [
-        {
-            file: "/static/Q10a.png",
-            name: "Q10a"
-        },
-        {
-            file: "/static/Q10b.png",
-            name: "Q10b"
-        },
-        {
-            file: "/static/Q10c.png",
-            name: "Q10c"
-        }
-    ];
+    // 3. 给当前点击的行人加上选中高亮
+    element.classList.add('selected');
 
-    // Randomly select one image
-    const randomIndex = Math.floor(Math.random() * images.length);
+    // 4. 更新【当前题目内部】的文字提示
+    const displaySpan = questionBox.querySelector('.selection-status-bar span');
+    if (displaySpan) {
+        displaySpan.innerText = personName;
+    }
 
-    const selectedImage = images[randomIndex];
+    // 5. 将选中的值赋给【当前题目内部】的隐藏 input 控件
+    const inputField = questionBox.querySelector('input[type="hidden"]');
+    if (inputField) {
+        inputField.value = personName;
+    }
 
-    // Display the selected image
-    document.getElementById("Q10_image").src = selectedImage.file;
-
-    // Store the image name in a hidden field
-    document.getElementById("Q10_image_value").value =
-        selectedImage.name;
-
-});
-
+    // 6. 如果集成了前端必填校验，自动清除标红
+    if (typeof clearQuestionError === 'function') {
+        clearQuestionError(questionBox);
+    }
+}
 </script>
-<!--<br><br>-->
-</div>
+
 <div class="question">
 <h3>
-    Q11: Imagine what if it is an emergency in the last question? For example, if there is a fire.
+    Q11: Please hover over the image and click directly on a person to select their position:
 </h3>
 
-<label> <input type="radio" name="Q11" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
-<br>
-<label> <input type="radio" name="Q11" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
-<br>
-<label> <input type="radio" name="Q11" value="Neither" style="transform: scale(1.5); margin-right: 5px;" > Neither </label>
-<!--<br><br>-->
+    <!-- 交互式容器 -->
+    <div class="interactive-image-container">
+        <!-- 底图 -->
+        <img id="base-image" src="/static/Q10aa.png" alt="Pedestrian Crowd">
+
+        <!-- 叠加在图片上方的 SVG 高亮区域 -->
+        <svg class="interactive-svg-overlay" viewBox="0 0 1000 800">
+            <!-- 1. 区域人群 (P1 ~ P25) -->
+            <g class="pedestrian-spot" data-person="Person P1" onclick="selectPedestrian('Person P1', this)">
+                <circle cx="-83" cy="428" r="18" class="highlight-shape" />
+                <text x="-83" y="433" class="person-label">P1</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P2" onclick="selectPedestrian('Person P2', this)">
+                <circle cx="-40" cy="470" r="18" class="highlight-shape" />
+                <text x="-40" y="475" class="person-label">P2</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P3" onclick="selectPedestrian('Person P3', this)">
+                <circle cx="3" cy="500" r="18" class="highlight-shape" />
+                <text x="3" y="505" class="person-label">P3</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P4" onclick="selectPedestrian('Person P4', this)">
+                <circle cx="-5" cy="570" r="18" class="highlight-shape" />
+                <text x="-5" y="575" class="person-label">P4</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P5" onclick="selectPedestrian('Person P5', this)">
+                <circle cx="-5" cy="685" r="18" class="highlight-shape" />
+                <text x="-5" y="690" class="person-label">P5</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P6" onclick="selectPedestrian('Person P6', this)">
+                <circle cx="50" cy="520" r="18" class="highlight-shape" />
+                <text x="50" y="525" class="person-label">P6</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P7" onclick="selectPedestrian('Person P7', this)">
+                <circle cx="45" cy="620" r="18" class="highlight-shape" />
+                <text x="45" y="625" class="person-label">P7</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P8" onclick="selectPedestrian('Person P8', this)">
+                <circle cx="82" cy="620" r="18" class="highlight-shape" />
+                <text x="82" y="625" class="person-label">P8</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P9" onclick="selectPedestrian('Person P9', this)">
+                <circle cx="104" cy="550" r="18" class="highlight-shape" />
+                <text x="104" y="555" class="person-label">P9</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P10" onclick="selectPedestrian('Person P10', this)">
+                <circle cx="80" cy="750" r="18" class="highlight-shape" />
+                <text x="80" y="755" class="person-label">P10</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P11" onclick="selectPedestrian('Person P11', this)">
+                <circle cx="155" cy="710" r="18" class="highlight-shape" />
+                <text x="155" y="715" class="person-label">P11</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P12" onclick="selectPedestrian('Person P12', this)">
+                <circle cx="-78" cy="365" r="18" class="highlight-shape" />
+                <text x="-78" y="370" class="person-label">P12</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P13" onclick="selectPedestrian('Person P13', this)">
+                <circle cx="-30" cy="385" r="18" class="highlight-shape" />
+                <text x="-30" y="390" class="person-label">P13</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P14" onclick="selectPedestrian('Person P14', this)">
+                <circle cx="0" cy="425" r="18" class="highlight-shape" />
+                <text x="0" y="430" class="person-label">P14</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P15" onclick="selectPedestrian('Person P15', this)">
+                <circle cx="40" cy="440" r="18" class="highlight-shape" />
+                <text x="40" y="445" class="person-label">P15</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P16" onclick="selectPedestrian('Person P16', this)">
+                <circle cx="90" cy="390" r="18" class="highlight-shape" />
+                <text x="90" y="395" class="person-label">P16</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P17" onclick="selectPedestrian('Person P17', this)">
+                <circle cx="33" cy="340" r="18" class="highlight-shape" />
+                <text x="33" y="345" class="person-label">P17</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P18" onclick="selectPedestrian('Person P18', this)">
+                <circle cx="-5" cy="305" r="18" class="highlight-shape" />
+                <text x="-5" y="310" class="person-label">P18</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P19" onclick="selectPedestrian('Person P19', this)">
+                <circle cx="-5" cy="160" r="18" class="highlight-shape" />
+                <text x="-5" y="165" class="person-label">P19</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P20" onclick="selectPedestrian('Person P20', this)">
+                <circle cx="45" cy="201" r="18" class="highlight-shape" />
+                <text x="45" y="206" class="person-label">P20</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P21" onclick="selectPedestrian('Person P21', this)">
+                <circle cx="40" cy="260" r="18" class="highlight-shape" />
+                <text x="40" y="265" class="person-label">P21</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P22" onclick="selectPedestrian('Person P22', this)">
+                <circle cx="10" cy="238" r="18" class="highlight-shape" />
+                <text x="10" y="243" class="person-label">P22</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P23" onclick="selectPedestrian('Person P23', this)">
+                <circle cx="115" cy="155" r="18" class="highlight-shape" />
+                <text x="115" y="160" class="person-label">P23</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P24" onclick="selectPedestrian('Person P24', this)">
+                <circle cx="65" cy="125" r="18" class="highlight-shape" />
+                <text x="65" y="130" class="person-label">P24</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P25" onclick="selectPedestrian('Person P25', this)">
+                <circle cx="163" cy="628" r="18" class="highlight-shape" />
+                <text x="163" y="633" class="person-label">P25</text>
+            </g>
+
+            <!-- 2. 中侧人群 (P26 ~ P45) -->
+            <g class="pedestrian-spot" data-person="Person P26" onclick="selectPedestrian('Person P26', this)">
+                <circle cx="135" cy="460" r="18" class="highlight-shape" />
+                <text x="135" y="465" class="person-label">P26</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P27" onclick="selectPedestrian('Person P27', this)">
+                <circle cx="203" cy="378" r="18" class="highlight-shape" />
+                <text x="203" y="383" class="person-label">P27</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P28" onclick="selectPedestrian('Person P28', this)">
+                <circle cx="170" cy="320" r="18" class="highlight-shape" />
+                <text x="170" y="325" class="person-label">P28</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P29" onclick="selectPedestrian('Person P29', this)">
+                <circle cx="193" cy="148" r="18" class="highlight-shape" />
+                <text x="193" y="153" class="person-label">P29</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P30" onclick="selectPedestrian('Person P30', this)">
+                <circle cx="193" cy="63" r="18" class="highlight-shape" />
+                <text x="193" y="68" class="person-label">P30</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P31" onclick="selectPedestrian('Person P31', this)">
+                <circle cx="175" cy="230" r="18" class="highlight-shape" />
+                <text x="175" y="235" class="person-label">P31</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P32" onclick="selectPedestrian('Person P32', this)">
+                <circle cx="240" cy="320" r="18" class="highlight-shape" />
+                <text x="240" y="325" class="person-label">P32</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P33" onclick="selectPedestrian('Person P33', this)">
+                <circle cx="288" cy="420" r="18" class="highlight-shape" />
+                <text x="288" y="425" class="person-label">P33</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P34" onclick="selectPedestrian('Person P34', this)">
+                <circle cx="240" cy="460" r="18" class="highlight-shape" />
+                <text x="240" y="465" class="person-label">P34</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P35" onclick="selectPedestrian('Person P35', this)">
+                <circle cx="205" cy="520" r="18" class="highlight-shape" />
+                <text x="205" y="525" class="person-label">P35</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P36" onclick="selectPedestrian('Person P36', this)">
+                <circle cx="260" cy="50" r="18" class="highlight-shape" />
+                <text x="260" y="55" class="person-label">P36</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P37" onclick="selectPedestrian('Person P37', this)">
+                <circle cx="345" cy="155" r="18" class="highlight-shape" />
+                <text x="345" y="160" class="person-label">P37</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P38" onclick="selectPedestrian('Person P38', this)">
+                <circle cx="410" cy="175" r="18" class="highlight-shape" />
+                <text x="410" y="180" class="person-label">P38</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P39" onclick="selectPedestrian('Person P39', this)">
+                <circle cx="350" cy="240" r="18" class="highlight-shape" />
+                <text x="350" y="245" class="person-label">P39</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P40" onclick="selectPedestrian('Person P40', this)">
+                <circle cx="325" cy="328" r="18" class="highlight-shape" />
+                <text x="325" y="333" class="person-label">P40</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P41" onclick="selectPedestrian('Person P41', this)">
+                <circle cx="260" cy="522" r="18" class="highlight-shape" />
+                <text x="260" y="527" class="person-label">P41</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P42" onclick="selectPedestrian('Person P42', this)">
+                <circle cx="322" cy="570" r="18" class="highlight-shape" />
+                <text x="322" y="575" class="person-label">P42</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P43" onclick="selectPedestrian('Person P43', this)">
+                <circle cx="370" cy="595" r="18" class="highlight-shape" />
+                <text x="370" y="600" class="person-label">P43</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P44" onclick="selectPedestrian('Person P44', this)">
+                <circle cx="370" cy="705" r="18" class="highlight-shape" />
+                <text x="370" y="710" class="person-label">P44</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P45" onclick="selectPedestrian('Person P45', this)">
+                <circle cx="300" cy="768" r="18" class="highlight-shape" />
+                <text x="300" y="773" class="person-label">P45</text>
+            </g>
+
+            <!-- 3. 右侧及前沿人群 (P46 ~ P72) -->
+            <g class="pedestrian-spot" data-person="Person P46" onclick="selectPedestrian('Person P46', this)">
+                <circle cx="385" cy="75" r="18" class="highlight-shape" />
+                <text x="385" y="80" class="person-label">P46</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P47" onclick="selectPedestrian('Person P47', this)">
+                <circle cx="410" cy="300" r="18" class="highlight-shape" />
+                <text x="410" y="305" class="person-label">P47</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P48" onclick="selectPedestrian('Person P48', this)">
+                <circle cx="425" cy="370" r="18" class="highlight-shape" />
+                <text x="425" y="375" class="person-label">P48</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P49" onclick="selectPedestrian('Person P49', this)">
+                <circle cx="390" cy="490" r="18" class="highlight-shape" />
+                <text x="390" y="495" class="person-label">P49</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P50" onclick="selectPedestrian('Person P50', this)">
+                <circle cx="460" cy="500" r="18" class="highlight-shape" />
+                <text x="460" y="505" class="person-label">P50</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P51" onclick="selectPedestrian('Person P51', this)">
+                <circle cx="525" cy="480" r="18" class="highlight-shape" />
+                <text x="525" y="485" class="person-label">P51</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P52" onclick="selectPedestrian('Person P52', this)">
+                <circle cx="540" cy="310" r="18" class="highlight-shape" />
+                <text x="540" y="315" class="person-label">P52</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P53" onclick="selectPedestrian('Person P53', this)">
+                <circle cx="590" cy="295" r="18" class="highlight-shape" />
+                <text x="590" y="300" class="person-label">P53</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P54" onclick="selectPedestrian('Person P54', this)">
+                <circle cx="480" cy="263" r="18" class="highlight-shape" />
+                <text x="480" y="268" class="person-label">P54</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P55" onclick="selectPedestrian('Person P55', this)">
+                <circle cx="560" cy="100" r="18" class="highlight-shape" />
+                <text x="560" y="105" class="person-label">P55</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P56" onclick="selectPedestrian('Person P56', this)">
+                <circle cx="630" cy="175" r="18" class="highlight-shape" />
+                <text x="630" y="180" class="person-label">P56</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P57" onclick="selectPedestrian('Person P57', this)">
+                <circle cx="710" cy="250" r="18" class="highlight-shape" />
+                <text x="710" y="255" class="person-label">P57</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P58" onclick="selectPedestrian('Person P58', this)">
+                <circle cx="645" cy="390" r="18" class="highlight-shape" />
+                <text x="645" y="395" class="person-label">P58</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P59" onclick="selectPedestrian('Person P59', this)">
+                <circle cx="655" cy="575" r="18" class="highlight-shape" />
+                <text x="655" y="580" class="person-label">P59</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P60" onclick="selectPedestrian('Person P60', this)">
+                <circle cx="550" cy="565" r="18" class="highlight-shape" />
+                <text x="550" y="570" class="person-label">P60</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P61" onclick="selectPedestrian('Person P61', this)">
+                <circle cx="480" cy="620" r="18" class="highlight-shape" />
+                <text x="480" y="625" class="person-label">P61</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P62" onclick="selectPedestrian('Person P62', this)">
+                <circle cx="520" cy="720" r="18" class="highlight-shape" />
+                <text x="520" y="725" class="person-label">P62</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P63" onclick="selectPedestrian('Person P63', this)">
+                <circle cx="620" cy="650" r="18" class="highlight-shape" />
+                <text x="620" y="655" class="person-label">P63</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P64" onclick="selectPedestrian('Person P64', this)">
+                <circle cx="400" cy="415" r="18" class="highlight-shape" />
+                <text x="400" y="420" class="person-label">P64</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P65" onclick="selectPedestrian('Person P65', this)">
+                <circle cx="479" cy="128" r="18" class="highlight-shape" />
+                <text x="479" y="133" class="person-label">P65</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P66" onclick="selectPedestrian('Person P66', this)">
+                <circle cx="500" cy="373" r="18" class="highlight-shape" />
+                <text x="500" y="378" class="person-label">P66</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P67" onclick="selectPedestrian('Person P67', this)">
+                <circle cx="540" cy="180" r="18" class="highlight-shape" />
+                <text x="540" y="185" class="person-label">P67</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P68" onclick="selectPedestrian('Person P68', this)">
+                <circle cx="560" cy="405" r="18" class="highlight-shape" />
+                <text x="560" y="410" class="person-label">P68</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P69" onclick="selectPedestrian('Person P69', this)">
+                <circle cx="658" cy="310" r="18" class="highlight-shape" />
+                <text x="658" y="315" class="person-label">P69</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P70" onclick="selectPedestrian('Person P70', this)">
+                <circle cx="720" cy="484" r="18" class="highlight-shape" />
+                <text x="720" y="489" class="person-label">P70</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P71" onclick="selectPedestrian('Person P71', this)">
+                <circle cx="780" cy="405" r="18" class="highlight-shape" />
+                <text x="780" y="410" class="person-label">P71</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P72" onclick="selectPedestrian('Person P72', this)">
+                <circle cx="620" cy="480" r="18" class="highlight-shape" />
+                <text x="620" y="485" class="person-label">P72</text>
+            </g>
+        </svg>
+    </div>
+
+<!-- 交互提示与当前选择结果展现 -->
+    <div class="selection-status-bar">
+        Current Selection: <span id="display-selected-person-q11">None (Click on any person)</span>
+    </div>
+
+    <!-- 提交给 Flask 后端的隐藏字段 -->
+    <input type="hidden" name="Q11" id="Q11_input_field" value="">
 </div>
+
+<!--&lt;!&ndash; 专属 CSS 样式表 &ndash;&gt;-->
+<!--<style>-->
+<!--.interactive-image-container {-->
+<!--    position: relative;-->
+<!--    display: inline-block;-->
+<!--    width: 100%;-->
+<!--    max-width: 650px;-->
+<!--    border-radius: 12px;-->
+<!--    overflow: hidden;-->
+<!--    box-shadow: 0 4px 12px rgba(0,0,0,0.15);-->
+<!--}-->
+
+<!--#base-image {-->
+<!--    width: 100%;-->
+<!--    height: auto;-->
+<!--    display: block;-->
+<!--}-->
+
+<!--/* SVG 绝对定位叠加在图片最上层 */-->
+<!--.interactive-svg-overlay {-->
+<!--    position: absolute;-->
+<!--    top: 0;-->
+<!--    left: 0;-->
+<!--    width: 100%;-->
+<!--    height: 100%;-->
+<!--    pointer-events: auto;-->
+<!--}-->
+
+<!--/* 初始高亮形状：虚线透明圈 */-->
+<!--.highlight-shape {-->
+<!--    fill: rgba(231, 76, 60, 0.2);-->
+<!--    stroke: #ffffff;-->
+<!--    stroke-width: 3;-->
+<!--    stroke-dasharray: 4;-->
+<!--    cursor: pointer;-->
+<!--    transition: all 0.25s ease;-->
+<!--}-->
+
+<!--.person-label {-->
+<!--    fill: #ffffff;-->
+<!--    font-size: 20px;-->
+<!--    font-weight: bold;-->
+<!--    text-anchor: middle;-->
+<!--    pointer-events: none; /* 让鼠标穿透文本，直接触发下方图形点击 */-->
+<!--}-->
+
+<!--/* 悬停 (Hover) 高亮效果 */-->
+<!--.pedestrian-spot:hover .highlight-shape {-->
+<!--    fill: rgba(231, 76, 60, 0.6);-->
+<!--    stroke: #ffffff;-->
+<!--    stroke-width: 4;-->
+<!--    stroke-dasharray: 0; /* 变成实线 */-->
+<!--    transform: fill-box;-->
+<!--    transform-origin: center;-->
+<!--}-->
+
+<!--/* 选中 (Selected) 状态的高亮效果 */-->
+<!--.pedestrian-spot.selected .highlight-shape {-->
+<!--    fill: rgba(46, 204, 113, 0.75) !important; /* 变为亮绿色 */-->
+<!--    stroke: #27ae60 !important;-->
+<!--    stroke-width: 5 !important;-->
+<!--    stroke-dasharray: 0 !important;-->
+<!--}-->
+
+<!--.selection-status-bar_11 {-->
+<!--    margin-top: 15px;-->
+<!--    font-size: 20px;-->
+<!--    font-weight: bold;-->
+<!--    color: #c0392b;-->
+<!--}-->
+
+<!--#display-selected-person_11 {-->
+<!--    color: #27ae60;-->
+<!--}-->
+<!--</style>-->
+
+<!--<script>-->
+<!--function selectPedestrian(personName, element) {-->
+<!--    // 1. 获取当前点击所在的题目卡片 (.question)-->
+<!--    const questionBox = element.closest('.question');-->
+<!--    if (!questionBox) return;-->
+
+<!--    // 2. 仅清除【当前题目内部】所有行人的选中高亮状态-->
+<!--    const spots = questionBox.querySelectorAll('.pedestrian-spot');-->
+<!--    spots.forEach(spot => spot.classList.remove('selected'));-->
+
+<!--    // 3. 给当前点击的行人加上选中高亮-->
+<!--    element.classList.add('selected');-->
+
+<!--    // 4. 更新【当前题目内部】的文字提示-->
+<!--    const displaySpan = questionBox.querySelector('.selection-status-bar span');-->
+<!--    if (displaySpan) {-->
+<!--        displaySpan.innerText = personName;-->
+<!--    }-->
+
+<!--    // 5. 将选中的值赋给【当前题目内部】的隐藏 input 控件-->
+<!--    const inputField = questionBox.querySelector('input[type="hidden"]');-->
+<!--    if (inputField) {-->
+<!--        inputField.value = personName;-->
+<!--    }-->
+
+<!--    // 6. 如果集成了前端必填校验，自动清除标红-->
+<!--    if (typeof clearQuestionError === 'function') {-->
+<!--        clearQuestionError(questionBox);-->
+<!--    }-->
+<!--}-->
+<!--</script>-->
+
+
 <div class="question">
 <h3>
-    Q12: Which of them do you think would be more likely to to push in normal, safe circumstances?
+    Q12: Please hover over the image and click directly on a person to select their position:
 </h3>
 
-<!--    <img src="/static/Q15a.png" width="450"><br>-->
-<!--    <img src="/static/Q15b.png" width="450"><br>-->
-<!--    <img src="/static/Q15c.png" width="450"><br>-->
+    <!-- 交互式容器 -->
+    <div class="interactive-image-container">
+        <!-- 底图 (根据需要替换为 Q12 的图片路径) -->
+        <img class="base-image" src="/static/Q10bb.png" alt="Pedestrian Crowd">
 
-<div style="text-align:">
-    <img id="Q12_image" width="450" src="">
+        <!-- 叠加在图片上方的 SVG 高亮区域 -->
+        <svg class="interactive-svg-overlay" viewBox="0 0 1000 800">
+             <g class="pedestrian-spot" data-person="Person P1" onclick="selectPedestrian('Person P1', this)">
+                <circle cx="285" cy="410" r="18" class="highlight-shape" />
+                <text x="285" y="415" class="person-label">P1</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P2" onclick="selectPedestrian('Person P2', this)">
+                <circle cx="275" cy="450" r="18" class="highlight-shape" />
+                <text x="275" y="455" class="person-label">P2</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P3" onclick="selectPedestrian('Person P3', this)">
+                <circle cx="287" cy="482" r="18" class="highlight-shape" />
+                <text x="287" y="487" class="person-label">P3</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P4" onclick="selectPedestrian('Person P4', this)">
+                <circle cx="280" cy="550" r="18" class="highlight-shape" />
+                <text x="280" y="555" class="person-label">P4</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P5" onclick="selectPedestrian('Person P5', this)">
+                <circle cx="265" cy="350" r="18" class="highlight-shape" />
+                <text x="265" y="355" class="person-label">P5</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P6" onclick="selectPedestrian('Person P6', this)">
+                <circle cx="320" cy="330" r="18" class="highlight-shape" />
+                <text x="320" y="335" class="person-label">P6</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P7" onclick="selectPedestrian('Person P7', this)">
+                <circle cx="350" cy="400" r="18" class="highlight-shape" />
+                <text x="350" y="405" class="person-label">P7</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P8" onclick="selectPedestrian('Person P8', this)">
+                <circle cx="360" cy="445" r="18" class="highlight-shape" />
+                <text x="360" y="450" class="person-label">P8</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P9" onclick="selectPedestrian('Person P9', this)">
+                <circle cx="358" cy="504" r="18" class="highlight-shape" />
+                <text x="358" y="509" class="person-label">P9</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P10" onclick="selectPedestrian('Person P10', this)">
+                <circle cx="350" cy="560" r="18" class="highlight-shape" />
+                <text x="350" y="565" class="person-label">P10</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P11" onclick="selectPedestrian('Person P11', this)">
+                <circle cx="350" cy="645" r="18" class="highlight-shape" />
+                <text x="350" y="650" class="person-label">P11</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P12" onclick="selectPedestrian('Person P12', this)">
+                <circle cx="320" cy="600" r="18" class="highlight-shape" />
+                <text x="320" y="605" class="person-label">P12</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P13" onclick="selectPedestrian('Person P13', this)">
+                <circle cx="430" cy="683" r="18" class="highlight-shape" />
+                <text x="430" y="688" class="person-label">P13</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P14" onclick="selectPedestrian('Person P14', this)">
+                <circle cx="388" cy="605" r="18" class="highlight-shape" />
+                <text x="388" y="610" class="person-label">P14</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P15" onclick="selectPedestrian('Person P15', this)">
+                <circle cx="430" cy="625" r="18" class="highlight-shape" />
+                <text x="430" y="630" class="person-label">P15</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P16" onclick="selectPedestrian('Person P16', this)">
+                <circle cx="392" cy="410" r="18" class="highlight-shape" />
+                <text x="392" y="415" class="person-label">P16</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P17" onclick="selectPedestrian('Person P17', this)">
+                <circle cx="395" cy="495" r="18" class="highlight-shape" />
+                <text x="395" y="500" class="person-label">P17</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P18" onclick="selectPedestrian('Person P18', this)">
+                <circle cx="420" cy="550" r="18" class="highlight-shape" />
+                <text x="420" y="555" class="person-label">P18</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P19" onclick="selectPedestrian('Person P19', this)">
+                <circle cx="485" cy="590" r="18" class="highlight-shape" />
+                <text x="485" y="595" class="person-label">P19</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P20" onclick="selectPedestrian('Person P20', this)">
+                <circle cx="490" cy="660" r="18" class="highlight-shape" />
+                <text x="490" y="665" class="person-label">P20</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P21" onclick="selectPedestrian('Person P21', this)">
+                <circle cx="478" cy="495" r="18" class="highlight-shape" />
+                <text x="478" y="500" class="person-label">P21</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P22" onclick="selectPedestrian('Person P22', this)">
+                <circle cx="478" cy="533" r="18" class="highlight-shape" />
+                <text x="478" y="538" class="person-label">P22</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P23" onclick="selectPedestrian('Person P23', this)">
+                <circle cx="430" cy="445" r="18" class="highlight-shape" />
+                <text x="430" y="450" class="person-label">P23</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P24" onclick="selectPedestrian('Person P24', this)">
+                <circle cx="430" cy="387" r="18" class="highlight-shape" />
+                <text x="430" y="392" class="person-label">P24</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P25" onclick="selectPedestrian('Person P25', this)">
+                <circle cx="425" cy="310" r="18" class="highlight-shape" />
+                <text x="425" y="315" class="person-label">P25</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P26" onclick="selectPedestrian('Person P26', this)">
+                <circle cx="375" cy="310" r="18" class="highlight-shape" />
+                <text x="375" y="315" class="person-label">P26</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P27" onclick="selectPedestrian('Person P27', this)">
+                <circle cx="350" cy="255" r="18" class="highlight-shape" />
+                <text x="350" y="260" class="person-label">P27</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P28" onclick="selectPedestrian('Person P28', this)">
+                <circle cx="410" cy="254" r="18" class="highlight-shape" />
+                <text x="410" y="259" class="person-label">P28</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P29" onclick="selectPedestrian('Person P29', this)">
+                <circle cx="390" cy="195" r="18" class="highlight-shape" />
+                <text x="390" y="200" class="person-label">P29</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P30" onclick="selectPedestrian('Person P30', this)">
+                <circle cx="432" cy="195" r="18" class="highlight-shape" />
+                <text x="432" y="200" class="person-label">P30</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P31" onclick="selectPedestrian('Person P31', this)">
+                <circle cx="500" cy="180" r="18" class="highlight-shape" />
+                <text x="500" y="185" class="person-label">P31</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P32" onclick="selectPedestrian('Person P32', this)">
+                <circle cx="475" cy="240" r="18" class="highlight-shape" />
+                <text x="475" y="245" class="person-label">P32</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P33" onclick="selectPedestrian('Person P33', this)">
+                <circle cx="510" cy="275" r="18" class="highlight-shape" />
+                <text x="510" y="280" class="person-label">P33</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P34" onclick="selectPedestrian('Person P34', this)">
+                <circle cx="485" cy="350" r="18" class="highlight-shape" />
+                <text x="485" y="355" class="person-label">P34</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P35" onclick="selectPedestrian('Person P35', this)">
+                <circle cx="530" cy="450" r="18" class="highlight-shape" />
+                <text x="530" y="455" class="person-label">P35</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P36" onclick="selectPedestrian('Person P36', this)">
+                <circle cx="545" cy="520" r="18" class="highlight-shape" />
+                <text x="545" y="525" class="person-label">P36</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P37" onclick="selectPedestrian('Person P37', this)">
+                <circle cx="528" cy="590" r="18" class="highlight-shape" />
+                <text x="528" y="595" class="person-label">P37</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P38" onclick="selectPedestrian('Person P38', this)">
+                <circle cx="515" cy="690" r="18" class="highlight-shape" />
+                <text x="515" y="695" class="person-label">P38</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P39" onclick="selectPedestrian('Person P39', this)">
+                <circle cx="575" cy="680" r="18" class="highlight-shape" />
+                <text x="575" y="685" class="person-label">P39</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P40" onclick="selectPedestrian('Person P40', this)">
+                <circle cx="580" cy="600" r="18" class="highlight-shape" />
+                <text x="580" y="605" class="person-label">P40</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P41" onclick="selectPedestrian('Person P41', this)">
+                <circle cx="578" cy="550" r="18" class="highlight-shape" />
+                <text x="578" y="555" class="person-label">P41</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P42" onclick="selectPedestrian('Person P42', this)">
+                <circle cx="576" cy="490" r="18" class="highlight-shape" />
+                <text x="576" y="495" class="person-label">P42</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P43" onclick="selectPedestrian('Person P43', this)">
+                <circle cx="555" cy="380" r="18" class="highlight-shape" />
+                <text x="555" y="385" class="person-label">P43</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P44" onclick="selectPedestrian('Person P44', this)">
+                <circle cx="545" cy="300" r="18" class="highlight-shape" />
+                <text x="545" y="305" class="person-label">P44</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P45" onclick="selectPedestrian('Person P45', this)">
+                <circle cx="550" cy="230" r="18" class="highlight-shape" />
+                <text x="550" y="235" class="person-label">P45</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P46" onclick="selectPedestrian('Person P46', this)">
+                <circle cx="555" cy="160" r="18" class="highlight-shape" />
+                <text x="555" y="165" class="person-label">P46</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P47" onclick="selectPedestrian('Person P47', this)">
+                <circle cx="590" cy="90" r="18" class="highlight-shape" />
+                <text x="590" y="95" class="person-label">P47</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P48" onclick="selectPedestrian('Person P48', this)">
+                <circle cx="625" cy="660" r="18" class="highlight-shape" />
+                <text x="625" y="665" class="person-label">P48</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P49" onclick="selectPedestrian('Person P49', this)">
+                <circle cx="620" cy="545" r="18" class="highlight-shape" />
+                <text x="620" y="550" class="person-label">P49</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P50" onclick="selectPedestrian('Person P50', this)">
+                <circle cx="640" cy="575" r="18" class="highlight-shape" />
+                <text x="640" y="580" class="person-label">P50</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P51" onclick="selectPedestrian('Person P51', this)">
+                <circle cx="610" cy="445" r="18" class="highlight-shape" />
+                <text x="610" y="450" class="person-label">P51</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P52" onclick="selectPedestrian('Person P52', this)">
+                <circle cx="595" cy="350" r="18" class="highlight-shape" />
+                <text x="595" y="355" class="person-label">P52</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P53" onclick="selectPedestrian('Person P53', this)">
+                <circle cx="605" cy="230" r="18" class="highlight-shape" />
+                <text x="605" y="235" class="person-label">P53</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P54" onclick="selectPedestrian('Person P54', this)">
+                <circle cx="640" cy="275" r="18" class="highlight-shape" />
+                <text x="640" y="280" class="person-label">P54</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P55" onclick="selectPedestrian('Person P55', this)">
+                <circle cx="680" cy="115" r="18" class="highlight-shape" />
+                <text x="680" y="120" class="person-label">P55</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P56" onclick="selectPedestrian('Person P56', this)">
+                <circle cx="640" cy="325" r="18" class="highlight-shape" />
+                <text x="640" y="330" class="person-label">P56</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P57" onclick="selectPedestrian('Person P57', this)">
+                <circle cx="660" cy="365" r="18" class="highlight-shape" />
+                <text x="660" y="370" class="person-label">P57</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P58" onclick="selectPedestrian('Person P58', this)">
+                <circle cx="670" cy="440" r="18" class="highlight-shape" />
+                <text x="670" y="445" class="person-label">P58</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P59" onclick="selectPedestrian('Person P59', this)">
+                <circle cx="680" cy="502" r="18" class="highlight-shape" />
+                <text x="680" y="507" class="person-label">P59</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P60" onclick="selectPedestrian('Person P60', this)">
+                <circle cx="705" cy="543" r="18" class="highlight-shape" />
+                <text x="705" y="548" class="person-label">P60</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P61" onclick="selectPedestrian('Person P61', this)">
+                <circle cx="700" cy="603" r="18" class="highlight-shape" />
+                <text x="700" y="608" class="person-label">P61</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P62" onclick="selectPedestrian('Person P62', this)">
+                <circle cx="660" cy="610" r="18" class="highlight-shape" />
+                <text x="660" y="615" class="person-label">P62</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P63" onclick="selectPedestrian('Person P63', this)">
+                <circle cx="700" cy="650" r="18" class="highlight-shape" />
+                <text x="700" y="655" class="person-label">P63</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P64" onclick="selectPedestrian('Person P64', this)">
+                <circle cx="685" cy="700" r="18" class="highlight-shape" />
+                <text x="685" y="705" class="person-label">P64</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P65" onclick="selectPedestrian('Person P65', this)">
+                <circle cx="680" cy="750" r="18" class="highlight-shape" />
+                <text x="680" y="755" class="person-label">P65</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P66" onclick="selectPedestrian('Person P66', this)">
+                <circle cx="720" cy="250" r="18" class="highlight-shape" />
+                <text x="720" y="255" class="person-label">P66</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P67" onclick="selectPedestrian('Person P67', this)">
+                <circle cx="690" cy="310" r="18" class="highlight-shape" />
+                <text x="690" y="315" class="person-label">P67</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P68" onclick="selectPedestrian('Person P68', this)">
+                <circle cx="730" cy="355" r="18" class="highlight-shape" />
+                <text x="730" y="360" class="person-label">P68</text>
+            </g>
+            <g class="pedestrian-spot" data-person="Person P69" onclick="selectPedestrian('Person P69', this)">
+                <circle cx="725" cy="435" r="18" class="highlight-shape" />
+                <text x="725" y="440" class="person-label">P69</text>
+            </g>
+        </svg>
+    </div>
+
+    <!-- 交互提示与当前选择结果展现 -->
+    <div class="selection-status-bar">
+        Current Selection: <span>None (Click on any person)</span>
+    </div>
+
+    <!-- 提交给 Flask 后端的隐藏字段 (name 已更新为 Q12) -->
+    <input type="hidden" name="Q12" id="Q12_input_field" value="">
 </div>
 
-<label> <input type="radio" name="Q12" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
-<br>
-<label> <input type="radio" name="Q12" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
-<br>
-<label> <input type="radio" name="Q12" value="Neither" style="transform: scale(1.5); margin-right: 5px;" > Neither </label>
 
-<!--<br><br>-->
-
-<!--<b>Reason:</b>-->
-
-<!--<br><br>-->
-
-<!--<label>-->
-<!--    <input type="checkbox"-->
-<!--           name="Q13_reason"-->
-<!--           value="Local density">-->
-<!--    Local density-->
-<!--</label>-->
-
-<!--<br>-->
-
-<!--<label>-->
-<!--    <input type="checkbox"-->
-<!--           name="Q13_reason"-->
-<!--           value="Distance from exit">-->
-<!--    Distance from exit-->
-<!--</label>-->
-
-<!--<br><br>-->
-
-<!--<label>-->
-<!--   Reason:-->
-<!--</label>-->
-<!--<br>-->
-<!--<textarea-->
-<!--    name="Q12_reason"-->
-<!--    rows="3"-->
-<!--    cols="70"-->
-<!--    placeholder="Please explain why you chose this person..."-->
-<!--    style="font-size: 20px;"-->
-<!--&gt;</textarea>-->
-
-<!-- Store the randomly selected image -->
-
-<input type="hidden"
-    name="Q12_image"
-    id="Q12_image_value">
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Three possible scenario images
-    const images = [
-        {
-            file: "/static/Q12a.png",
-            name: "Q12a"
-        },
-        {
-            file: "/static/Q12b.png",
-            name: "Q12b"
-        },
-        {
-            file: "/static/Q12c.png",
-            name: "Q12c"
-        }
-    ];
-
-    // Randomly select one image
-    const randomIndex = Math.floor(Math.random() * images.length);
-
-    const selectedImage = images[randomIndex];
-
-    // Display the selected image
-    document.getElementById("Q12_image").src = selectedImage.file;
-
-    // Store the image name in a hidden field
-    document.getElementById("Q12_image_value").value =
-        selectedImage.name;
-
-});
-
-</script>
-<!--<br><br>-->
-</div>
 <div class="question">
-<h3>
-    Q13: Imagine what if it is an emergency in the last question? For example, if there is a fire.
-</h3>
-
-<label> <input type="radio" name="Q13" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
-<br>
-<label> <input type="radio" name="Q13" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
-<br>
-<label> <input type="radio" name="Q13" value="Neither" style="transform: scale(1.5); margin-right: 5px;" > Neither </label>
-<!--<br><br>-->
-</div>
-    <div class="question">
 
 <h3>
     Q14: In which area do you think pedestrians are more likely to to push in normal, safe circumstances?
@@ -1225,7 +1991,6 @@ document.addEventListener("DOMContentLoaded", function () {
 <!--<br>-->
 <!--<br><br>-->
 </div>
-
 
 <div class="question">
 <h3>
