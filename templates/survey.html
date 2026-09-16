@@ -149,11 +149,13 @@ max-width: 100% !important;
 <!--&gt;</textarea>-->
 
 <div class="question">
-<h3>Q2: Have you ever taken part in any major public events involving a significant number of people, such as music festivals, sports events, fireworks displays, and parades?</h3>
+  <h3>Q2: How often do you attend major crowded public events (such as music festivals, sports events, fireworks displays, or parades)?</h3>
 
-<input type="radio" name="Q2" value="Yes " style="transform: scale(1.5); margin-right: 5px;" > Yes <br>
-<input type="radio" name="Q2" value="No " style="transform: scale(1.5); margin-right: 5px;"> No <br>
-
+  <input type="radio" name="Q2" value="Never" style="transform: scale(1.5); margin-right: 5px;"> Never<br>
+  <input type="radio" name="Q2" value="Less than once a year" style="transform: scale(1.5); margin-right: 5px;"> Less than once a year <br>
+  <input type="radio" name="Q2" value="12 times a year)" style="transform: scale(1.5); margin-right: 5px;"> 1-2 times a year<br>
+  <input type="radio" name="Q2" value="Frequently (3–5 times a year)" style="transform: scale(1.5); margin-right: 5px;"> 3-5 times a year<br>
+  <input type="radio" name="Q2" value="Very frequently (6 or more times a year)" style="transform: scale(1.5); margin-right: 5px;"> 6 or more times a year<br>
 </div>
 <!--<br><br>-->
 
@@ -282,42 +284,53 @@ max-width: 100% !important;
 <!--&gt;</textarea>-->
 
 <!--<br><br><br><br>-->
-
 <div class="question">
+  <h3>Q3: In which scenario do you think the pedestrians are moving in an orderly and organised manner?</h3>
 
-<h3>
-Q3: In which scenario do you think the pedestrians are moving in a orderly and organised manner?
-</h3>
+  <table>
+    <tr>
+      <td align="center">
+        <img id="gifA" src="/static/030.gif" width="450">
+        <br><b>Scenario A</b>
+      </td>
+      <td width="50"></td>
+      <td align="center">
+        <img id="gifB" src="/static/040.gif" width="450">
+        <br><b>Scenario B</b>
+      </td>
+    </tr>
+  </table>
+  <br>
 
-
-<table>
-<tr>
-    <td align="center">
-        <img src="/static/030.gif" width="450">
-<!--        <div-->
-<!--           style="margin-top: 0px; margin-bottom: 0px;"> -->
-        <br><b>Scenarios A</b>
-<!--        </div>-->
-    </td>
-    <td width="50"></td>
-
-    <td align="center">
-        <img src="/static/040.gif" width="450">
-<!--        <div-->
-<!--           style="margin-top: 0px; margin-bottom: 0px;"> -->
-        <br><b>Scenarios B</b>
-<!--        </div>-->
-    </td>
-</tr>
-</table>
-<br>
-
-<input type="radio" name="Q3" value="Scenarios A" style="transform: scale(1.5); margin-right: 5px;" > Scenarios A <br>
-<input type="radio" name="Q3" value="Scenarios B" style="transform: scale(1.5); margin-right: 5px;"> Scenarios B <br>
-<input type="radio" name="Q3" value="Both are disorganised and disorderly" style="transform: scale(1.5); margin-right: 5px;"> Both are disorganised and disorderly <br>
-<input type="radio" name="Q3" value="Both are organised and orderly" style="transform: scale(1.5); margin-right: 5px;"> Both are organised and orderly <br>
-
+  <input type="radio" name="Q3" value="Scenario A" style="transform: scale(1.5); margin-right: 5px;"> Scenario A<br>
+  <input type="radio" name="Q3" value="Scenario B" style="transform: scale(1.5); margin-right: 5px;"> Scenario B<br>
+  <input type="radio" name="Q3" value="Both are disorganised and disorderly" style="transform: scale(1.5); margin-right: 5px;"> Both are disorganised and disorderly<br>
+  <input type="radio" name="Q3" value="Both are organised and orderly" style="transform: scale(1.5); margin-right: 5px;"> Both are organised and orderly<br>
 </div>
+
+<script>
+  (function syncGifPlayback() {
+    const gifA = document.getElementById('gifA');
+    const gifB = document.getElementById('gifB');
+
+    let loaded = 0;
+    const handleLoad = () => {
+      loaded++;
+      if (loaded === 2) {
+        // 两张图片均下载完成后，同时重置 src 以同步起始帧
+        const srcA = gifA.src;
+        const srcB = gifB.src;
+        gifA.src = '';
+        gifB.src = '';
+        gifA.src = srcA;
+        gifB.src = srcB;
+      }
+    };
+
+    if (gifA.complete) handleLoad(); else gifA.onload = handleLoad;
+    if (gifB.complete) handleLoad(); else gifB.onload = handleLoad;
+  })();
+</script>
 <!--<table>-->
 <!--<tr>-->
 <!--&lt;!&ndash;    <td align="center">&ndash;&gt;-->
@@ -390,12 +403,12 @@ Q3: In which scenario do you think the pedestrians are moving in a orderly and o
 <!--<input type="radio" name="Q6" value="No" style="transform: scale(1.5); margin-right: 5px;"> No <br>-->
 
 <div class="question">
-<h3>Q4: Which crowd would you prefer to join when moving towards the exit? </h3>
+<h3>Q4: Which crowd would you prefer to join when moving towards the exit relatively? </h3>
 
 <table>
 <tr>
     <td align="center">
-        <img src="/static/030.gif" width="450"><br>
+        <img id="gif4A" src="/static/030.gif" width="450">
         <label>
             <input type="radio" name="Q4" value="Scenarios A" style="transform: scale(1.5); margin-right: 5px;" >
             Scenarios A
@@ -405,7 +418,7 @@ Q3: In which scenario do you think the pedestrians are moving in a orderly and o
     <td width="50"></td>
 
     <td align="center">
-        <img src="/static/040.gif" width="450"><br>
+        <img id="gif4B" src="/static/040.gif" width="450">
         <label>
             <input type="radio" name="Q4" value="Scenarios B" style="transform: scale(1.5); margin-right: 5px;">
             Scenarios B
@@ -414,6 +427,31 @@ Q3: In which scenario do you think the pedestrians are moving in a orderly and o
 </tr>
 </table>
 </div>
+
+<script>
+  (function syncGifPlayback() {
+    const gifA = document.getElementById('gif4A');
+    const gifB = document.getElementById('gif4B');
+
+    let loaded = 0;
+    const handleLoad = () => {
+      loaded++;
+      if (loaded === 2) {
+        // 两张图片均下载完成后，同时重置 src 以同步起始帧
+        const srcA = gifA.src;
+        const srcB = gifB.src;
+        gifA.src = '';
+        gifB.src = '';
+        gifA.src = srcA;
+        gifB.src = srcB;
+      }
+    };
+
+    if (gifA.complete) handleLoad(); else gifA.onload = handleLoad;
+    if (gifB.complete) handleLoad(); else gifB.onload = handleLoad;
+  })();
+</script>
+
 <!--<br>-->
 
 <!--<label>-->
@@ -517,62 +555,80 @@ Q3: In which scenario do you think the pedestrians are moving in a orderly and o
 
 <div id="Q5_reasons" style="display:none; margin-left:20px;">
 
-
-<b>If so, why? (multiple choice)</b>
+<b>Which of the following statements apply to your choice?</b>
 <br>
 
-<div id="Q5_reason_list">
+    <div id="Q5_reason_list">
 
-    <label>
-        <input type="checkbox" name="Q5_reason"
-               value="Reach the exit more quickly"
-        style="transform: scale(1.5); margin-right: 5px;">
-        I believe I would reach the exit more quickly.
-    </label>
-    <br>
+        <label>
+            <input type="checkbox" name="Q5_reason"
+                   value="I believe I would reach the exit more quickly."
+            style="transform: scale(1.5); margin-right: 5px;">
+            I believe I would reach the exit more quickly.
+        </label>
+        <br>
 
-    <label>
-        <input type="checkbox" name="Q5_reason"
-               value="Evacuate more efficiently overall"
-        style="transform: scale(1.5); margin-right: 5px;">
-        I believe the crowd would evacuate more efficiently overall.
-    </label>
-    <br>
+        <label>
+            <input type="checkbox" name="Q5_reason"
+                   value="I believe the crowd would evacuate more efficiently overall."
+            style="transform: scale(1.5); margin-right: 5px;">
+            I believe the crowd would evacuate more efficiently overall.
+        </label>
+        <br>
 
-    <label>
-        <input type="checkbox" name="Q5_reason"
-               value="Feel safer"
-        style="transform: scale(1.5); margin-right: 5px;">
-        I would feel safer.
-    </label>
-    <br>
+        <label>
+            <input type="checkbox" name="Q5_reason"
+                   value="I would feel safer."
+            style="transform: scale(1.5); margin-right: 5px;">
+            I would feel safer.
+        </label>
+        <br>
 
-    <label>
-        <input type="checkbox" name="Q5_reason"
-               value="Feel more comfortable"
-        style="transform: scale(1.5); margin-right: 5px;">
-        I would feel more comfortable.
-    </label>
-    <br>
+        <label>
+            <input type="checkbox" name="Q5_reason"
+                   value="I would feel more comfortable."
+            style="transform: scale(1.5); margin-right: 5px;">
+            I would feel more comfortable.
+        </label>
+        <br>
 
-    <label>
-        <input type="checkbox" name="Q5_reason"
-               value="Less physical contact"
-        style="transform: scale(1.5); margin-right: 5px;">
-        I would experience less physical contact.
-    </label>
-    <br>
+        <label>
+            <input type="checkbox" name="Q5_reason"
+                   value="I would experience less physical contact or pushing from others."
+            style="transform: scale(1.5); margin-right: 5px;">
+            I would experience less physical contact or pushing from others.
+        </label>
+        <br>
 
-    <label>
-        <input type="checkbox" name="Q5_reason"
-               value="Greater freedom to choose my own movement"
-        style="transform: scale(1.5); margin-right: 5px;">
-        I would have greater freedom to choose my own movement.
-    </label>
-    <br>
+        <label>
+            <input type="checkbox" name="Q5_reason"
+                   value="I would have greater freedom to choose my own movement."
+            style="transform: scale(1.5); margin-right: 5px;">
+            I would have greater freedom to choose my own movement.
+        </label>
+        <br>
 
-</div>
+        <label>
+            <input type="checkbox" name="Q5_reason"
+                   value="I would be less likely to need to push others to move forward."
+            style="transform: scale(1.5); margin-right: 5px;">
+            I would be less likely to need to push others to move forward.
+        </label>
+        <br>
+    </div>
 
+    <textarea
+        name="Q5_add"
+        rows="4"
+        placeholder="Typing the factors you consider if none of the above apply..."
+        style="
+            margin-top: 15px;
+            font-size: 20px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            resize: vertical;"
+    ></textarea>
 
 </div>
 
@@ -602,180 +658,181 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
 </div>
 
-<div class="question">
-<h3>
-    Q6: What  factors do you think influence the movement of pedestrians in these two scenarios?
-</h3>
+<!--<div class="question">-->
+<!--<h3>-->
+<!--    Q6: What  factors do you think influence the movement of pedestrians in these two scenarios?-->
+<!--</h3>-->
 
-<!--<ul id="Q9_ranking" style="-->
-<!--    list-style: none;-->
-<!--    padding: 0;-->
-<!--    max-width: 700px;-->
-<!--">-->
+<!--&lt;!&ndash;<ul id="Q9_ranking" style="&ndash;&gt;-->
+<!--&lt;!&ndash;    list-style: none;&ndash;&gt;-->
+<!--&lt;!&ndash;    padding: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;    max-width: 700px;&ndash;&gt;-->
+<!--&lt;!&ndash;">&ndash;&gt;-->
 
-<!--<li draggable="true" data-value="Spatial comfort" style="-->
-<!--    padding: 15px;-->
-<!--    margin: 8px 0;-->
-<!--    border: 1px solid #ccc;-->
-<!--    border-radius: 6px;-->
-<!--    background: #f5f5f5;-->
-<!--    cursor: move;-->
-<!--">-->
-<!--    Spatial comfort: crowd density and maintaining a safe distance from others-->
-<!--</li>-->
+<!--&lt;!&ndash;<li draggable="true" data-value="Spatial comfort" style="&ndash;&gt;-->
+<!--&lt;!&ndash;    padding: 15px;&ndash;&gt;-->
+<!--&lt;!&ndash;    margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;    border: 1px solid #ccc;&ndash;&gt;-->
+<!--&lt;!&ndash;    border-radius: 6px;&ndash;&gt;-->
+<!--&lt;!&ndash;    background: #f5f5f5;&ndash;&gt;-->
+<!--&lt;!&ndash;    cursor: move;&ndash;&gt;-->
+<!--&lt;!&ndash;">&ndash;&gt;-->
+<!--&lt;!&ndash;    Spatial comfort: crowd density and maintaining a safe distance from others&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
 
-<!--<li draggable="true" data-value="Social order" style="-->
-<!--    padding: 15px;-->
-<!--    margin: 8px 0;-->
-<!--    border: 1px solid #ccc;-->
-<!--    border-radius: 6px;-->
-<!--    background: #f5f5f5;-->
-<!--    cursor: move;-->
-<!--">-->
-<!--    Social order: keeping a steady pace, being polite, and avoiding pushing-->
-<!--</li>-->
+<!--&lt;!&ndash;<li draggable="true" data-value="Social order" style="&ndash;&gt;-->
+<!--&lt;!&ndash;    padding: 15px;&ndash;&gt;-->
+<!--&lt;!&ndash;    margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;    border: 1px solid #ccc;&ndash;&gt;-->
+<!--&lt;!&ndash;    border-radius: 6px;&ndash;&gt;-->
+<!--&lt;!&ndash;    background: #f5f5f5;&ndash;&gt;-->
+<!--&lt;!&ndash;    cursor: move;&ndash;&gt;-->
+<!--&lt;!&ndash;">&ndash;&gt;-->
+<!--&lt;!&ndash;    Social order: keeping a steady pace, being polite, and avoiding pushing&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
 
-<!--<li draggable="true" data-value="Initial positions" style="-->
-<!--    padding: 15px;-->
-<!--    margin: 8px 0;-->
-<!--    border: 1px solid #ccc;-->
-<!--    border-radius: 6px;-->
-<!--    background: #f5f5f5;-->
-<!--    cursor: move;-->
-<!--">-->
-<!--    Distribution of pedestrians' initial positions-->
-<!--</li>-->
+<!--&lt;!&ndash;<li draggable="true" data-value="Initial positions" style="&ndash;&gt;-->
+<!--&lt;!&ndash;    padding: 15px;&ndash;&gt;-->
+<!--&lt;!&ndash;    margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;    border: 1px solid #ccc;&ndash;&gt;-->
+<!--&lt;!&ndash;    border-radius: 6px;&ndash;&gt;-->
+<!--&lt;!&ndash;    background: #f5f5f5;&ndash;&gt;-->
+<!--&lt;!&ndash;    cursor: move;&ndash;&gt;-->
+<!--&lt;!&ndash;">&ndash;&gt;-->
+<!--&lt;!&ndash;    Distribution of pedestrians' initial positions&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
 
-<!--<li draggable="true" data-value="Evacuation duration" style="-->
-<!--    padding: 15px;-->
-<!--    margin: 8px 0;-->
-<!--    border: 1px solid #ccc;-->
-<!--    border-radius: 6px;-->
-<!--    background: #f5f5f5;-->
-<!--    cursor: move;-->
-<!--">-->
-<!--    Duration of evacuation-->
-<!--</li>-->
-
-
-<!--</ul>-->
-
-<!--&lt;!&ndash; Hidden fields used to store the final ranking &ndash;&gt;-->
-
-<!--<input type="hidden" name="Q9_rank_1" id="Q9_rank_1" >-->
-<!--<input type="hidden" name="Q9_rank_2" id="Q9_rank_2">-->
-<!--<input type="hidden" name="Q9_rank_3" id="Q9_rank_3">-->
-<!--<input type="hidden" name="Q9_rank_4" id="Q9_rank_4">-->
+<!--&lt;!&ndash;<li draggable="true" data-value="Evacuation duration" style="&ndash;&gt;-->
+<!--&lt;!&ndash;    padding: 15px;&ndash;&gt;-->
+<!--&lt;!&ndash;    margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;    border: 1px solid #ccc;&ndash;&gt;-->
+<!--&lt;!&ndash;    border-radius: 6px;&ndash;&gt;-->
+<!--&lt;!&ndash;    background: #f5f5f5;&ndash;&gt;-->
+<!--&lt;!&ndash;    cursor: move;&ndash;&gt;-->
+<!--&lt;!&ndash;">&ndash;&gt;-->
+<!--&lt;!&ndash;    Duration of evacuation&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
 
 
-<!--<label>-->
-<!--    Other comments:-->
-<!--</label>-->
-<!--<br>-->
+<!--&lt;!&ndash;</ul>&ndash;&gt;-->
 
-<textarea
-    name="Q6_add"
-    rows="4"
-    placeholder="Typing the factors you consider important..."
-    style="
-        font-size: 20px;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        resize: vertical;"
-></textarea>
+<!--&lt;!&ndash;&lt;!&ndash; Hidden fields used to store the final ranking &ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;<input type="hidden" name="Q9_rank_1" id="Q9_rank_1" >&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="hidden" name="Q9_rank_2" id="Q9_rank_2">&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="hidden" name="Q9_rank_3" id="Q9_rank_3">&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="hidden" name="Q9_rank_4" id="Q9_rank_4">&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<label>&ndash;&gt;-->
+<!--&lt;!&ndash;    Other comments:&ndash;&gt;-->
+<!--&lt;!&ndash;</label>&ndash;&gt;-->
+<!--&lt;!&ndash;<br>&ndash;&gt;-->
+
+<!--<textarea-->
+<!--    name="Q6_add"-->
+<!--    rows="4"-->
+<!--    placeholder="Typing the factors you consider important..."-->
+<!--    style="-->
+<!--        font-size: 20px;-->
+<!--        width: 100%;-->
+<!--        max-width: 100%;-->
+<!--        box-sizing: border-box;-->
+<!--        resize: vertical;"-->
+<!--&gt;</textarea>-->
 
 <!--<br><br>-->
 
-<script>
+<!--<script>-->
 
-const rankingList = document.getElementById("Q9_ranking");
+<!--const rankingList = document.getElementById("Q9_ranking");-->
 
-let draggedItem = null;
+<!--let draggedItem = null;-->
 
-rankingList.addEventListener("dragstart", function(e) {
-    draggedItem = e.target;
-});
+<!--rankingList.addEventListener("dragstart", function(e) {-->
+<!--    draggedItem = e.target;-->
+<!--});-->
 
-rankingList.addEventListener("dragover", function(e) {
-    e.preventDefault();
+<!--rankingList.addEventListener("dragover", function(e) {-->
+<!--    e.preventDefault();-->
 
-    const target = e.target.closest("li");
+<!--    const target = e.target.closest("li");-->
 
-    if (!target || target === draggedItem) {
-        return;
-    }
+<!--    if (!target || target === draggedItem) {-->
+<!--        return;-->
+<!--    }-->
 
-    const rect = target.getBoundingClientRect();
-    const offset = e.clientY - rect.top;
+<!--    const rect = target.getBoundingClientRect();-->
+<!--    const offset = e.clientY - rect.top;-->
 
-    if (offset > rect.height / 2) {
-        target.after(draggedItem);
-    } else {
-        target.before(draggedItem);
-    }
-});
+<!--    if (offset > rect.height / 2) {-->
+<!--        target.after(draggedItem);-->
+<!--    } else {-->
+<!--        target.before(draggedItem);-->
+<!--    }-->
+<!--});-->
 
-rankingList.addEventListener("dragend", function() {
-    updateQ9Ranking();
-});
+<!--rankingList.addEventListener("dragend", function() {-->
+<!--    updateQ9Ranking();-->
+<!--});-->
 
-function updateQ9Ranking() {
+<!--function updateQ9Ranking() {-->
 
-    const items = rankingList.querySelectorAll("li");
+<!--    const items = rankingList.querySelectorAll("li");-->
 
-    items.forEach(function(item, index) {
+<!--    items.forEach(function(item, index) {-->
 
-        document.getElementById(
-            "Q9_rank_" + (index + 1)
-        ).value = item.dataset.value;
+<!--        document.getElementById(-->
+<!--            "Q9_rank_" + (index + 1)-->
+<!--        ).value = item.dataset.value;-->
 
-    });
-}
+<!--    });-->
+<!--}-->
 
-// Set the initial ranking
-updateQ9Ranking();
-</script>
-</div>
+<!--// Set the initial ranking-->
+<!--updateQ9Ranking();-->
+<!--</script>-->
+<!--</div>-->
 
-    <div class="question">
-<h3> Q7: What degree of pushing do you think you would engage in to get to the exit more quickly in normal, safe circumstances? </h3>
+<!--    <div class="question">-->
+<!--<h3> Q7: What degree of pushing do you think you would engage in to get to the exit more quickly in normal, safe circumstances? </h3>-->
 
-<label> <input type="radio" name="Q7" value="1" style="transform: scale(1.5); margin-right: 5px;" > 1 -- <b> Completely avoid physical contact:</b>  maintaining personal space and avoiding touching others completely </label>
-<br>
+<!--<label> <input type="radio" name="Q7" value="1" style="transform: scale(1.5); margin-right: 5px;" > 1 &#45;&#45; <b> Completely avoid physical contact:</b>  maintaining personal space and avoiding touching others completely </label>-->
+<!--<br>-->
 
-<label> <input type="radio" name="Q7" value="2" style="transform: scale(1.5); margin-right: 5px;" > 2 -- <b> Mild contact only: </b> moving closer to others when space is limited but avoiding deliberately making physical contact </label>
-<br>
+<!--<label> <input type="radio" name="Q7" value="2" style="transform: scale(1.5); margin-right: 5px;" > 2 &#45;&#45; <b> Mild contact only: </b> moving closer to others when space is limited but avoiding deliberately making physical contact </label>-->
+<!--<br>-->
 
-<label> <input type="radio" name="Q7" value="3" style="transform: scale(1.5); margin-right: 5px;" > 3 -- <b> Occasional body contact:</b>  using gentle body contact to move into small gaps without causing discomfort to others </label>
-<br>
+<!--<label> <input type="radio" name="Q7" value="3" style="transform: scale(1.5); margin-right: 5px;" > 3 &#45;&#45; <b> Occasional body contact:</b>  using gentle body contact to move into small gaps without causing discomfort to others </label>-->
+<!--<br>-->
 
-<label> <input type="radio" name="Q7" value="4" style="transform: scale(1.5); margin-right: 5px;" > 4 -- <b> Active squeezing: </b> actively squeezing through available gaps </label>
-<br>
+<!--<label> <input type="radio" name="Q7" value="4" style="transform: scale(1.5); margin-right: 5px;" > 4 &#45;&#45; <b> Active squeezing: </b> actively squeezing through available gaps </label>-->
+<!--<br>-->
 
-<label> <input type="radio" name="Q7" value="5" style="transform: scale(1.5); margin-right: 5px;" > 5 -- <b> Forceful pushing: </b> deliberately using my body to push past or displace others to gain a more advantageous position and reach the exit sooner </label>
+<!--<label> <input type="radio" name="Q7" value="5" style="transform: scale(1.5); margin-right: 5px;" > 5 &#45;&#45; <b> Forceful pushing: </b> deliberately using my body to push past or displace others to gain a more advantageous position and reach the exit sooner </label>-->
 
-<br><br>
-    </div>
-<div class="question">
-<h3> Q8: Imagine what if it is an emergency in the last question? For example, if there is a fire.  </h3>
+<!--<br><br>-->
+<!--    </div>-->
+<!--<div class="question">-->
+<!--<h3> Q8: Imagine what if it is an emergency in the last question? For example, if there is a fire.  </h3>-->
 
-<label> <input type="radio" name="Q8" value="1" style="transform: scale(1.5); margin-right: 5px;" > 1 -- <b> Completely avoid physical contact: </b>  maintaining personal space and avoiding touching others completely </label>
-<br>
+<!--<label> <input type="radio" name="Q8" value="1" style="transform: scale(1.5); margin-right: 5px;" > 1 &#45;&#45; <b> Completely avoid physical contact: </b>  maintaining personal space and avoiding touching others completely </label>-->
+<!--<br>-->
 
-<label> <input type="radio" name="Q8" value="2" style="transform: scale(1.5); margin-right: 5px;" > 2 -- <b> Mild contact only: </b>  moving closer to others when space is limited but avoiding deliberately making physical contact </label>
-<br>
+<!--<label> <input type="radio" name="Q8" value="2" style="transform: scale(1.5); margin-right: 5px;" > 2 &#45;&#45; <b> Mild contact only: </b>  moving closer to others when space is limited but avoiding deliberately making physical contact </label>-->
+<!--<br>-->
 
-<label> <input type="radio" name="Q8" value="3" style="transform: scale(1.5); margin-right: 5px;" > 3 -- <b> Occasional body contact: </b>   using gentle body contact to move into small gaps without causing discomfort to others </label>
-<br>
+<!--<label> <input type="radio" name="Q8" value="3" style="transform: scale(1.5); margin-right: 5px;" > 3 &#45;&#45; <b> Occasional body contact: </b>   using gentle body contact to move into small gaps without causing discomfort to others </label>-->
+<!--<br>-->
 
-<label> <input type="radio" name="Q8" value="4" style="transform: scale(1.5); margin-right: 5px;" > 4 -- <b> Active squeezing: </b>  actively squeezing through available gaps </label>
-<br>
+<!--<label> <input type="radio" name="Q8" value="4" style="transform: scale(1.5); margin-right: 5px;" > 4 &#45;&#45; <b> Active squeezing: </b>  actively squeezing through available gaps </label>-->
+<!--<br>-->
 
-<label> <input type="radio" name="Q8" value="5" style="transform: scale(1.5); margin-right: 5px;" > 5 -- <b> Forceful pushing: </b>  deliberately using my body to push past or displace others to gain a more advantageous position and reach the exit sooner </label>
-</div>
+<!--<label> <input type="radio" name="Q8" value="5" style="transform: scale(1.5); margin-right: 5px;" > 5 &#45;&#45; <b> Forceful pushing: </b>  deliberately using my body to push past or displace others to gain a more advantageous position and reach the exit sooner </label>-->
+<!--</div>-->
 <!--<br><br>-->
 
 <!--<h3>-->
@@ -832,7 +889,7 @@ updateQ9Ranking();
 
 
 <!--<h3>-->
-<!--    Q13: If you were in the middle of a crowd in the Scenario B, would you push?-->
+<!--    Q9: If you were in the middle of a crowd in the Scenario B, would you push?-->
 <!--</h3>-->
 
 
@@ -853,99 +910,124 @@ updateQ9Ranking();
 
 
 <!--<label>-->
-<!--    <input type="radio" name="Q13" value="1">-->
+<!--    <input type="radio" name="Q9" value="1">-->
 <!--    A. Definitely push back-->
 <!--</label>-->
 <!--<br>-->
 
 <!--<label>-->
-<!--    <input type="radio" name="Q13" value="2">-->
+<!--    <input type="radio" name="Q9" value="2">-->
 <!--    B. Probably push back-->
 <!--</label>-->
 <!--<br>-->
 
 <!--<label>-->
-<!--    <input type="radio" name="Q13" value="3">-->
+<!--    <input type="radio" name="Q9" value="3">-->
 <!--    C. Neither likely nor unlikely-->
 <!--</label>-->
 <!--<br>-->
 
 <!--<label>-->
-<!--    <input type="radio" name="Q13" value="4">-->
+<!--    <input type="radio" name="Q9" value="4">-->
 <!--    D. Probably not push back-->
 <!--</label>-->
 <!--<br>-->
 
 <!--<label>-->
-<!--    <input type="radio" name="Q13" value="5">-->
+<!--    <input type="radio" name="Q9" value="5">-->
 <!--    E. Definitely not push back-->
 <!--</label>-->
 
 <!--<br><br>-->
 
-<div class="question">
-<h3>Q9: In which scenario are you more likely to push (deliberately making physical contact) someone? </h3>
+<!--<div class="question">-->
+<!--<h3>Q9: In which scenario are you more likely to push (deliberately making physical contact) someone? </h3>-->
 
-<table>
-<tr>
-    <td align="center">
-        <img src="/static/030.gif" width="450">
-<!--        <div-->
-<!--           style="margin-top: 0px; margin-bottom: 0px;"> -->
-        <br><b>Scenarios A</b>
-<!--        </div>-->
-    </td>
-    <td width="50"></td>
+<!--<table>-->
+<!--<tr>-->
+<!--    <td align="center">-->
+<!--        <img id="gif9A" src="/static/030.gif" width="450">-->
+<!--&lt;!&ndash;        <div&ndash;&gt;-->
+<!--&lt;!&ndash;           style="margin-top: 0px; margin-bottom: 0px;"> &ndash;&gt;-->
+<!--        <br><b> Scenarios A</b>-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    </td>-->
 
-    <td align="center">
-        <img src="/static/040.gif" width="450">
-<!--        <div-->
-<!--           style="margin-top: 0px; margin-bottom: 0px;"> -->
-        <br><b>Scenarios B</b>
-<!--        </div>-->
-    </td>
-</tr>
-</table>
+<!--    <td width="50"></td>-->
 
-<br>
+<!--    <td align="center">-->
+<!--        <img id="gif9B"  src="/static/040.gif" width="450">-->
+<!--&lt;!&ndash;        <div&ndash;&gt;-->
+<!--&lt;!&ndash;           style="margin-top: 0px; margin-bottom: 0px;"> &ndash;&gt;-->
+<!--        <br><b> Scenarios B</b>-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    </td>-->
+<!--</tr>-->
+<!--</table>-->
 
-<input type="radio" name="Q9" value="Scenarios A" style="transform: scale(1.5); margin-right: 5px;" > Scenarios A <br>
-<input type="radio" name="Q9" value="Scenarios B" style="transform: scale(1.5); margin-right: 5px;"> Scenarios B <br>
-<input type="radio" name="Q9" value="Neither" style="transform: scale(1.5); margin-right: 5px;"> Neither <br>
-<input type="radio" name="Q9" value="Both" style="transform: scale(1.5); margin-right: 5px;"> Both <br>
+<!--<br>-->
 
-<br>
+<!--<input type="radio" name="Q9" value="Scenarios A" style="transform: scale(1.5); margin-right: 5px;" > Scenarios A <br>-->
+<!--<input type="radio" name="Q9" value="Scenarios B" style="transform: scale(1.5); margin-right: 5px;"> Scenarios B <br>-->
+<!--<input type="radio" name="Q9" value="Neither" style="transform: scale(1.5); margin-right: 5px;"> Neither <br>-->
+<!--<input type="radio" name="Q9" value="Both" style="transform: scale(1.5); margin-right: 5px;"> Both <br>-->
+<!--<br>-->
 
-<label>
-    Reason:
-</label>
+<!--<label>-->
+<!--    Reason:-->
+<!--</label>-->
 
-<br>
-<textarea
-    name="Q9reason"
-    rows="4"
-    placeholder="Please explain why you chose this scenario..."
-    style="
-        font-size: 20px;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        resize: vertical;"
+<!--<br>-->
+<!--<textarea-->
+<!--    name="Q9reason"-->
+<!--    rows="4"-->
+<!--    placeholder="Please explain why you chose this..."-->
+<!--    style="-->
+<!--        font-size: 20px;-->
+<!--        width: 100%;-->
+<!--        max-width: 100%;-->
+<!--        box-sizing: border-box;-->
+<!--        resize: vertical;"-->
 
-></textarea>
-</div>
+<!--&gt;</textarea>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--  (function syncGifPlayback() {-->
+<!--    const gifA = document.getElementById('gif9A');-->
+<!--    const gifB = document.getElementById('gif9B');-->
+
+<!--    let loaded = 0;-->
+<!--    const handleLoad = () => {-->
+<!--      loaded++;-->
+<!--      if (loaded === 2) {-->
+<!--        // 两张图片均下载完成后，同时重置 src 以同步起始帧-->
+<!--        const srcA = gifA.src;-->
+<!--        const srcB = gifB.src;-->
+<!--        gifA.src = '';-->
+<!--        gifB.src = '';-->
+<!--        gifA.src = srcA;-->
+<!--        gifB.src = srcB;-->
+<!--      }-->
+<!--    };-->
+
+<!--    if (gifA.complete) handleLoad(); else gifA.onload = handleLoad;-->
+<!--    if (gifB.complete) handleLoad(); else gifB.onload = handleLoad;-->
+<!--  })();-->
+<!--</script>-->
+
 <!--<br><br>-->
 
 
 <div class="question">
 <h3>
-    Q10: Which pedestrian do you think is more likely to push someone (deliberately making physical contact), in normal and safe circumstances? (click directly)
+    Q6: Which pedestrian do you think is more likely to push someone at this moment (deliberately making physical contact), in normal and safe circumstances? (click directly)
 </h3>
 
     <!-- 交互式容器 -->
     <div class="interactive-image-container">
         <!-- 底图 (使用 ViewBox 坐标比例) -->
-        <img id="base-image" src="/static/Q10cc.png" alt="Pedestrian Crowd">
+        <img id="base-image" src="/static/Q6cc.png" alt="Pedestrian Crowd">
 
         <!-- 叠加在图片上方的 SVG 高亮区域 -->
         <svg class="interactive-svg-overlay" viewBox="0 0 1000 800">
@@ -1079,11 +1161,11 @@ updateQ9Ranking();
 
     <!-- 交互提示与当前选择结果展现 -->
     <div class="selection-status-bar">
-        Current Selection: <span id="display-selected-person">None (Click on person A or B)</span>
+        Current Selection: <span id="display-selected-person">None (Click on any person)</span>
     </div>
 
     <!-- 提交给 Flask 后端的隐藏字段 -->
-    <input type="hidden" name="Q10" id="Q10_input_field" value="">
+    <input type="hidden" name="Q6" id="Q6_input_field" value="">
 </div>
 
 <!-- 专属 CSS 样式表 -->
@@ -1198,13 +1280,13 @@ function selectPedestrian(personName, element) {
 
 <div class="question">
 <h3>
-    Q11: Which pedestrian do you think is more likely to push someone (deliberately making physical contact), in normal and safe circumstances? (click directly)
+    Q7: Which pedestrian do you think is more likely to push someone at this moment (deliberately making physical contact), in normal and safe circumstances? (click directly)
 </h3>
 
     <!-- 交互式容器 -->
     <div class="interactive-image-container">
         <!-- 底图 -->
-        <img id="base-image" src="/static/Q10aa.png" alt="Pedestrian Crowd">
+        <img id="base-image" src="/static/Q7aa.png" alt="Pedestrian Crowd">
 
         <!-- 叠加在图片上方的 SVG 高亮区域 -->
         <svg class="interactive-svg-overlay" viewBox="0 0 1000 800">
@@ -1506,11 +1588,11 @@ function selectPedestrian(personName, element) {
 
 <!-- 交互提示与当前选择结果展现 -->
     <div class="selection-status-bar">
-        Current Selection: <span id="display-selected-person-q11">None (Click on any person)</span>
+        Current Selection: <span id="display-selected-person-q7">None (Click on any person)</span>
     </div>
 
     <!-- 提交给 Flask 后端的隐藏字段 -->
-    <input type="hidden" name="Q11" id="Q11_input_field" value="">
+    <input type="hidden" name="Q7" id="Q7_input_field" value="">
 </div>
 
 <!--&lt;!&ndash; 专属 CSS 样式表 &ndash;&gt;-->
@@ -1624,13 +1706,13 @@ function selectPedestrian(personName, element) {
 
 <div class="question">
 <h3>
-    Q12: Which pedestrian do you think is more likely to push someone (deliberately making physical contact), in normal and safe circumstances? (click directly)
+    Q8: Which pedestrian do you think is more likely to push someone at this moment (deliberately making physical contact), in normal and safe circumstances? (click directly)
 </h3>
 
     <!-- 交互式容器 -->
     <div class="interactive-image-container">
         <!-- 底图 (根据需要替换为 Q12 的图片路径) -->
-        <img class="base-image" src="/static/Q10bb.png" alt="Pedestrian Crowd">
+        <img class="base-image" src="/static/Q8bb.png" alt="Pedestrian Crowd">
 
         <!-- 叠加在图片上方的 SVG 高亮区域 -->
         <svg class="interactive-svg-overlay" viewBox="0 0 1000 800">
@@ -1919,20 +2001,20 @@ function selectPedestrian(personName, element) {
     </div>
 
     <!-- 提交给 Flask 后端的隐藏字段 (name 已更新为 Q12) -->
-    <input type="hidden" name="Q12" id="Q12_input_field" value="">
+    <input type="hidden" name="Q8" id="Q8_input_field" value="">
 </div>
 
 
 <div class="question">
 
 <h3>
-    Q13: In which area do you think pedestrians are more likely to to push (deliberately making physical contact) in normal, safe circumstances?
+    Q9: In which area do you think pedestrians are more likely to to push (deliberately making physical contact) in normal, safe circumstances?
 </h3>
 
 <table>
 <tr>
     <td align="center">
-        <img src="/static/Q13B.png" width="600">
+        <img src="/static/Q9BB.png" width="600">
         <br>
     </td>
 
@@ -1940,21 +2022,13 @@ function selectPedestrian(personName, element) {
 </table>
 
 
-<label> <input type="radio" name="Q13" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
+<label> <input type="radio" name="Q9" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
 <br>
-<label> <input type="radio" name="Q13" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
+<label> <input type="radio" name="Q9" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
 <br>
-<label> <input type="radio" name="Q13" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>
+<label> <input type="radio" name="Q9" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>
 <br>
-<label> <input type="radio" name="Q13" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>
-<br>
-<label> <input type="radio" name="Q13" value="E" style="transform: scale(1.5); margin-right: 5px;" > E </label>
-<br>
-<label> <input type="radio" name="Q13" value="F" style="transform: scale(1.5); margin-right: 5px;" > F  </label>
-<br>
-<label> <input type="radio" name="Q13" value="G" style="transform: scale(1.5); margin-right: 5px;" > G </label>
-<br>
-<label> <input type="radio" name="Q13" value="H" style="transform: scale(1.5); margin-right: 5px;" > H  </label>
+<label> <input type="radio" name="Q9" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>
 <!--<br><br>-->
     </div>
 <!--<label>-->
@@ -1962,7 +2036,7 @@ function selectPedestrian(personName, element) {
 <!--</label>-->
 <!--<br>-->
 <!--<textarea-->
-<!--    name="Q14_reason"-->
+<!--    name="Q10_reason"-->
 <!--    rows="3"-->
 <!--    cols="70"-->
 <!--    placeholder="Please explain why you chose this person..."-->
@@ -1971,34 +2045,27 @@ function selectPedestrian(personName, element) {
 <!--<br><br>-->
 <div class="question">
 <h3>
-    Q14: Imagine what if it is an emergency in the last question? For example, if there is a fire.
+    Q10: Imagine what if it is an emergency in the last question? For example, if there is a fire.
 </h3>
-<label> <input type="radio" name="Q14" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
+<label> <input type="radio" name="Q10" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
 <br>
-<label> <input type="radio" name="Q14" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
+<label> <input type="radio" name="Q10" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
 <br>
-<label> <input type="radio" name="Q14" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>
+<label> <input type="radio" name="Q10" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>
 <br>
-<label> <input type="radio" name="Q14" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>
-<br>
-<label> <input type="radio" name="Q14" value="E" style="transform: scale(1.5); margin-right: 5px;" > E </label>
-<br>
-<label> <input type="radio" name="Q14" value="F" style="transform: scale(1.5); margin-right: 5px;" > F  </label>
-<br>
-<label> <input type="radio" name="Q14" value="G" style="transform: scale(1.5); margin-right: 5px;" > G </label>
-<br>
-<label> <input type="radio" name="Q14" value="H" style="transform: scale(1.5); margin-right: 5px;" > H  </label>
+<label> <input type="radio" name="Q10" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>
+
 <!--<br>-->
 <!--<br><br>-->
 </div>
 
 <div class="question">
 <h3>
-    Q15: When selecting the position or area before, what factors did you take into account?
+    Q11: When selecting the position or area before, what factors did you take into account?
 </h3>
 
 <textarea
-    name="Q15_reason"
+    name="Q11_reason"
     rows="4"
     placeholder="Typing the factors you consider important..."
     style="
@@ -2023,6 +2090,7 @@ function selectPedestrian(personName, element) {
     </button>
 </div>
 </form>
+
 <style>
 .question.validation-error {
     border: 2px solid #e74c3c !important;

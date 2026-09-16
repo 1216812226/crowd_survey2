@@ -41,17 +41,13 @@ def init_db():
             Q4 TEXT,
             Q5 TEXT,
             Q5_reason TEXT,
-            Q6_add TEXT,
+            Q5_add TEXT,
+            Q6 TEXT,
             Q7 TEXT,
             Q8 TEXT,
             Q9 TEXT,
-            Q9reason TEXT,
             Q10 TEXT,
-            Q11 TEXT,
-            Q12 TEXT,
-            Q13 TEXT,
-            Q14 TEXT,
-            Q15_reason TEXT
+            Q11_reason TEXT
         )
     """)
 
@@ -80,17 +76,13 @@ def save_to_database(data):
             Q4,
             Q5,
             Q5_reason,
-            Q6_add,
+            Q5_add,
+            Q6,
             Q7,
             Q8,
             Q9,
-            Q9reason,
             Q10,
-            Q11,
-            Q12,
-            Q13,
-            Q14,
-            Q15_reason
+            Q11_reason
         )
         VALUES (
             %(submit_time)s,
@@ -102,17 +94,13 @@ def save_to_database(data):
             %(Q4)s,
             %(Q5)s,
             %(Q5_reason)s,
-            %(Q6_add)s,
+            %(Q5_add)s,
+            %(Q6)s,
             %(Q7)s,
             %(Q8)s,
             %(Q9)s,
-            %(Q9reason)s,
             %(Q10)s,
-            %(Q11)s,
-            %(Q12)s,
-            %(Q13)s,
-            %(Q14)s,
-            %(Q15_reason)s
+            %(Q11_reason)s
         )
     """, data)
 
@@ -158,29 +146,19 @@ def survey():
                 request.form.getlist('Q5_reason')
             ),
 
-            'Q6_add': request.form.get('Q6_add'),
+            'Q5_add': request.form.get('Q5_add'),
+
+            'Q6': request.form.get('Q6'),
 
             'Q7': request.form.get('Q7'),
 
             'Q8': request.form.get('Q8'),
 
-            'Q9': ', '.join(
-                request.form.getlist('Q9')
-            ),
-
-            'Q9reason': request.form.get('Q9reason'),
+            'Q9': request.form.get('Q9'),
 
             'Q10': request.form.get('Q10'),
 
-            'Q11': request.form.get('Q11'),
-
-            'Q12': request.form.get('Q12'),
-
-            'Q13': request.form.get('Q13'),
-
-            'Q14': request.form.get('Q14'),
-
-            'Q15_reason': request.form.get('Q15_reason'),
+            'Q11_reason': request.form.get('Q11_reason'),
         }
 
         save_to_database(data)
@@ -288,7 +266,6 @@ except Exception as e:
     print("========================================")
     print(e)
     raise
-
 
 # =========================================================
 # Local development
