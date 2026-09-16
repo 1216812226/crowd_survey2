@@ -153,9 +153,9 @@ max-width: 100% !important;
 
   <input type="radio" name="Q2" value="Never" style="transform: scale(1.5); margin-right: 5px;"> Never<br>
   <input type="radio" name="Q2" value="Less than once a year" style="transform: scale(1.5); margin-right: 5px;"> Less than once a year <br>
-  <input type="radio" name="Q2" value="12 times a year)" style="transform: scale(1.5); margin-right: 5px;"> 1-2 times a year<br>
-  <input type="radio" name="Q2" value="Frequently (3–5 times a year)" style="transform: scale(1.5); margin-right: 5px;"> 3-5 times a year<br>
-  <input type="radio" name="Q2" value="Very frequently (6 or more times a year)" style="transform: scale(1.5); margin-right: 5px;"> 6 or more times a year<br>
+  <input type="radio" name="Q2" value="12 times a year" style="transform: scale(1.5); margin-right: 5px;"> 1-2 times a year<br>
+  <input type="radio" name="Q2" value="3-5 times a year" style="transform: scale(1.5); margin-right: 5px;"> 3-5 times a year<br>
+  <input type="radio" name="Q2" value="6 or more times a year" style="transform: scale(1.5); margin-right: 5px;"> 6 or more times a year<br>
 </div>
 <!--<br><br>-->
 
@@ -527,7 +527,6 @@ max-width: 100% !important;
 <!--</label>-->
 <!--<br>-->
 <!--</div>-->
-
 <div class="question">
 <h3>Q5: Do you think the crowd you've chosen would have a positive effect on your movement?</h3>
 
@@ -535,8 +534,7 @@ max-width: 100% !important;
     <input type="radio"
            name="Q5"
            value="Yes"
-           style="transform: scale(1.5); margin-right: 5px;"
-           onclick="document.getElementById('Q5_reasons').style.display='block'">
+           style="transform: scale(1.5); margin-right: 5px;">
     Yes
 </label>
 
@@ -546,16 +544,15 @@ max-width: 100% !important;
     <input type="radio"
            name="Q5"
            value="No"
-           style="transform: scale(1.5); margin-right: 5px;"
-           onclick="document.getElementById('Q5_reasons').style.display='none'">
+           style="transform: scale(1.5); margin-right: 5px;">
     No
 </label>
 
 <!--<br><br>-->
 
-<div id="Q5_reasons" style="display:none; margin-left:20px;">
+<div id="Q5_reasons" style="display:block; margin-top: 15px; margin-left:0px;">
 
-<b>Which of the following statements apply to your choice?</b>
+<b><i>(If Yes, please answer)</i>Which of the following statements apply to your choice?</b>
 <br>
 
     <div id="Q5_reason_list">
@@ -615,14 +612,16 @@ max-width: 100% !important;
             I would be less likely to need to push others to move forward.
         </label>
         <br>
-    </div>
 
+    </div>
+    <div style="margin-top: 5px;"></div>
+    Other factors:
     <textarea
         name="Q5_add"
         rows="4"
         placeholder="Typing the factors you consider if none of the above apply..."
         style="
-            margin-top: 15px;
+            margin-top: 5px;
             font-size: 20px;
             width: 100%;
             max-width: 100%;
@@ -637,10 +636,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const list = document.getElementById("Q5_reason_list");
 
-    // Get only the six reasons
+    // Get all reasons
     const reasons = Array.from(list.querySelectorAll("label"));
 
-    // Randomly shuffle the six reasons
+    // Randomly shuffle all reasons
     for (let i = reasons.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
 
