@@ -642,32 +642,55 @@ max-width: 100% !important;
 document.addEventListener("DOMContentLoaded", function () {
 
     const list = document.getElementById("Q5_reason_list");
+    const textarea = document.querySelector('textarea[name="Q5_add"]');
 
-    // 获取所有选项 label
+    // 1. 获取所有选项 label 并打乱顺序（None 保持置底）
     const allLabels = Array.from(list.querySelectorAll("label"));
+    const noneLabel = allLabels.pop(); // 弹出最后一个 None 选项
 
-    // 将最后一个“None of the above”单独取出，不参与打乱
-    const noneLabel = allLabels.pop();
-
-    // 仅对前面的普通选项进行随机排序
     for (let i = allLabels.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [allLabels[i], allLabels[j]] = [allLabels[j], allLabels[i]];
     }
 
-    // 清空原列表内容
     list.innerHTML = "";
 
-    // 先插入随机打乱后的常规选项
+    // 重新插入随机打乱后的选项
     allLabels.forEach(function (reason) {
         list.appendChild(reason);
         list.appendChild(document.createElement("br"));
     });
 
-    // 最后固定插入“None of the above”选项
+    // 固定在最后插入 None 选项
     if (noneLabel) {
         list.appendChild(noneLabel);
         list.appendChild(document.createElement("br"));
+    }
+
+    // 2. 绑定 None 选项的排他与必填逻辑
+    const noneCheckbox = list.querySelector('input[value="None of the above."]');
+    const otherCheckboxes = list.querySelectorAll('input[name="Q5_reason"]:not([value="None of the above."])');
+
+    if (noneCheckbox) {
+        noneCheckbox.addEventListener("change", function () {
+            if (this.checked) {
+                // 选中 None：取消勾选并禁用其他所有选项
+                otherCheckboxes.forEach(cb => {
+                    cb.checked = false;
+                    cb.disabled = true;
+                });
+                // 设为必填并聚焦
+                textarea.required = true;
+                textarea.focus();
+            } else {
+                // 取消选中 None：解除其他选项的禁用状态
+                otherCheckboxes.forEach(cb => {
+                    cb.disabled = false;
+                });
+                // 恢复为非必填
+                textarea.required = false;
+            }
+        });
     }
 
 });
