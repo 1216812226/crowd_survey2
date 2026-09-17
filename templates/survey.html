@@ -526,30 +526,7 @@ max-width: 100% !important;
 <!--    I would have greater freedom to choose my own movement.-->
 <!--</label>-->
 <!--<br>-->
-<!--</div>-->
-<div class="question">
-<h3>Q5: Do you think the crowd you have chosen would have an impact on your movement?</h3>
-
-<label>
-    <input type="radio"
-           name="Q5"
-           value="Yes"
-           style="transform: scale(1.5); margin-right: 5px;">
-    Yes
-</label>
-
-<br>
-
-<label>
-    <input type="radio"
-           name="Q5"
-           value="No"
-           style="transform: scale(1.5); margin-right: 5px;">
-    No
-</label>
-
-<!--<br><br>-->
-<div id="Q5_reasons" style="display:block; margin-top: 15px; margin-left:0px;">
+<!--</div>--><div id="Q5_reasons" style="display:block; margin-top: 15px; margin-left:0px;">
 
 <b><i>(If Yes, please answer)</i> Which of the following statements apply to your choice?</b>
 <br>
@@ -642,36 +619,54 @@ max-width: 100% !important;
 document.addEventListener("DOMContentLoaded", function () {
 
     const list = document.getElementById("Q5_reason_list");
+    const textarea = document.querySelector('textarea[name="Q5_add"]');
 
-    // 获取所有选项 label
+    // 1. 获取所有选项并洗牌（保持 None 在最后）
     const allLabels = Array.from(list.querySelectorAll("label"));
-
-    // 将最后一个“None of the above”单独取出，不参与打乱
     const noneLabel = allLabels.pop();
 
-    // 仅对前面的普通选项进行随机排序
     for (let i = allLabels.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [allLabels[i], allLabels[j]] = [allLabels[j], allLabels[i]];
     }
 
-    // 清空原列表内容
     list.innerHTML = "";
-
-    // 先插入随机打乱后的常规选项
     allLabels.forEach(function (reason) {
         list.appendChild(reason);
         list.appendChild(document.createElement("br"));
     });
 
-    // 最后固定插入“None of the above”选项
     if (noneLabel) {
         list.appendChild(noneLabel);
         list.appendChild(document.createElement("br"));
     }
 
+    // 2. 互斥选择与必填联动逻辑
+    const noneCheckbox = noneLabel.querySelector('input[type="checkbox"]');
+    const otherCheckboxes = allLabels.map(label => label.querySelector('input[type="checkbox"]'));
+
+    noneCheckbox.addEventListener("change", function () {
+        if (this.checked) {
+            // 勾选 None：取消并禁用其他选项
+            otherCheckboxes.forEach(cb => {
+                cb.checked = false;
+                cb.disabled = true;
+            });
+            // 要求必填文本框并自动聚焦
+            textarea.required = true;
+            textarea.focus();
+        } else {
+            // 取消勾选 None：解除禁用其他选项
+            otherCheckboxes.forEach(cb => {
+                cb.disabled = false;
+            });
+            textarea.required = false;
+        }
+    });
+
 });
 </script>
+
 </div>
 <!--<div class="question">-->
 <!--<h3>-->
@@ -2411,7 +2406,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Ignore hidden fields used to store random images/rankings
                     if (
                         input.type === "hidden" ||
-                        input.offsetParent === null
+                        input.offsetParent === null ||
                         input.name === "Q5_add"
                     ) {
                         continue;
