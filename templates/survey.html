@@ -403,7 +403,7 @@ max-width: 100% !important;
 <!--<input type="radio" name="Q6" value="No" style="transform: scale(1.5); margin-right: 5px;"> No <br>-->
 
 <div class="question">
-<h3>Q4: Which crowd would you prefer to join when moving towards the exit relatively? </h3>
+<h3>Q4: Which crowd would you prefer to join when moving towards the exit? </h3>
 
 <table>
 <tr>
@@ -528,7 +528,7 @@ max-width: 100% !important;
 <!--<br>-->
 <!--</div>-->
 <div class="question">
-<h3>Q5: Do you think the crowd you've chosen would have a positive effect on your movement?</h3>
+<h3>Q5: Do you think the crowd you have chosen would have an impact on your movement?</h3>
 
 <label>
     <input type="radio"
@@ -549,10 +549,9 @@ max-width: 100% !important;
 </label>
 
 <!--<br><br>-->
-
 <div id="Q5_reasons" style="display:block; margin-top: 15px; margin-left:0px;">
 
-<b><i>(If Yes, please answer)</i>Which of the following statements apply to your choice?</b>
+<b><i>(If Yes, please answer)</i> Which of the following statements apply to your choice?</b>
 <br>
 
     <div id="Q5_reason_list">
@@ -613,6 +612,14 @@ max-width: 100% !important;
         </label>
         <br>
 
+        <label>
+            <input type="checkbox" name="Q5_reason"
+                   value="None of the above."
+            style="transform: scale(1.5); margin-right: 5px;">
+            None of the above.
+        </label>
+        <br>
+
     </div>
     <div style="margin-top: 5px;"></div>
     Other factors:
@@ -636,30 +643,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const list = document.getElementById("Q5_reason_list");
 
-    // Get all reasons
-    const reasons = Array.from(list.querySelectorAll("label"));
+    // 获取所有选项 label
+    const allLabels = Array.from(list.querySelectorAll("label"));
 
-    // Randomly shuffle all reasons
-    for (let i = reasons.length - 1; i > 0; i--) {
+    // 将最后一个“None of the above”单独取出，不参与打乱
+    const noneLabel = allLabels.pop();
+
+    // 仅对前面的普通选项进行随机排序
+    for (let i = allLabels.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-
-        [reasons[i], reasons[j]] = [reasons[j], reasons[i]];
+        [allLabels[i], allLabels[j]] = [allLabels[j], allLabels[i]];
     }
 
-    // Remove the original content
+    // 清空原列表内容
     list.innerHTML = "";
 
-    // Put the reasons back in random order
-    reasons.forEach(function (reason) {
+    // 先插入随机打乱后的常规选项
+    allLabels.forEach(function (reason) {
         list.appendChild(reason);
         list.appendChild(document.createElement("br"));
     });
 
+    // 最后固定插入“None of the above”选项
+    if (noneLabel) {
+        list.appendChild(noneLabel);
+        list.appendChild(document.createElement("br"));
+    }
+
 });
 </script>
-
 </div>
-
 <!--<div class="question">-->
 <!--<h3>-->
 <!--    Q6: What  factors do you think influence the movement of pedestrians in these two scenarios?-->
@@ -1020,7 +1033,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <div class="question">
 <h3>
-    Q6: Which pedestrian do you think is more likely to push someone at this moment (deliberately making physical contact), in normal and safe circumstances? (click directly)
+    Q6: Which pedestrian do you think is most likely to push (deliberately making physical contact) someone immediately following this snapshot, in normal and safe circumstances?
 </h3>
 
     <!-- 交互式容器 -->
@@ -1279,7 +1292,7 @@ function selectPedestrian(personName, element) {
 
 <div class="question">
 <h3>
-    Q7: Which pedestrian do you think is more likely to push someone at this moment (deliberately making physical contact), in normal and safe circumstances? (click directly)
+    Q7: Which pedestrian do you think is most likely to push (deliberately making physical contact) someone immediately following this snapshot, in normal and safe circumstances?
 </h3>
 
     <!-- 交互式容器 -->
@@ -1705,7 +1718,7 @@ function selectPedestrian(personName, element) {
 
 <div class="question">
 <h3>
-    Q8: Which pedestrian do you think is more likely to push someone at this moment (deliberately making physical contact), in normal and safe circumstances? (click directly)
+    Q8: Which pedestrian do you think is most likely to push (deliberately making physical contact) someone immediately following this snapshot, in normal and safe circumstances?
 </h3>
 
     <!-- 交互式容器 -->
@@ -2004,32 +2017,206 @@ function selectPedestrian(personName, element) {
 </div>
 
 
-<div class="question">
+<!--<div class="question">-->
 
+<!--<h3>-->
+<!--    Q9: In which area do you think pedestrians are more likely to to push (deliberately making physical contact) in normal, safe circumstances?-->
+<!--</h3>-->
+
+<!--<table>-->
+<!--<tr>-->
+<!--    <td align="center">-->
+<!--        <img src="/static/Q9BB.png" width="600">-->
+<!--        <br>-->
+<!--    </td>-->
+
+<!--</tr>-->
+<!--</table>-->
+
+
+<!--<label> <input type="radio" name="Q9" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>-->
+<!--<br>-->
+<!--<label> <input type="radio" name="Q9" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>-->
+<!--<br>-->
+<!--<label> <input type="radio" name="Q9" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>-->
+<!--<br>-->
+<!--<label> <input type="radio" name="Q9" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>-->
+<!--&lt;!&ndash;<br><br>&ndash;&gt;-->
+<!--</div>-->
+
+    <div class="question">
 <h3>
-    Q9: In which area do you think pedestrians are more likely to to push (deliberately making physical contact) in normal, safe circumstances?
+    Q9: Imagine what if it is an emergency in the last question? For example, if there is a fire. (click directly on any of the 12 sector zones)
 </h3>
 
-<table>
-<tr>
-    <td align="center">
-        <img src="/static/Q9BB.png" width="600">
-        <br>
-    </td>
+    <!-- 交互式容器 -->
+    <div class="interactive-image-container">
+        <!-- 底图 -->
+        <img id="base-image-q9" src="/static/Q9.png" alt="Pedestrian Crowd Grid">
 
-</tr>
-</table>
-
-
-<label> <input type="radio" name="Q9" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
-<br>
-<label> <input type="radio" name="Q9" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
-<br>
-<label> <input type="radio" name="Q9" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>
-<br>
-<label> <input type="radio" name="Q9" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>
-<!--<br><br>-->
+        <!-- SVG 动态网格叠加层 (ViewBox 坐标 1000x800) -->
+        <svg id="q9-svg-overlay" class="interactive-svg-overlay" viewBox="0 0 1000 800">
+            <!-- 4x3 共 12 个扇环区域由 JS 动态绘制 -->
+        </svg>
     </div>
+
+    <!-- 交互提示与当前选择结果展现 -->
+    <div class="selection-status-bar">
+        Current Selection: <span id="display-selected-sector">None (Click on any sector zone)</span>
+    </div>
+
+    <!-- 提交给 Flask 后端的隐藏字段 -->
+    <input type="hidden" name="Q9" id="Q9_input_field" value="">
+</div>
+
+<style>
+/* 扇环单元格样式 */
+.sector-cell {
+    cursor: pointer;
+}
+
+.sector-cell .highlight-shape {
+    fill: rgba(52, 152, 219, 0.5); /* 默认淡蓝半透明 */
+    stroke: rgba(255, 255, 255, 0.85);
+    stroke-width: 3;
+    stroke-dasharray: 10 10; /* 新增：10px 实线，6px 虚线间隔 */
+    transition: all 0.2s ease;
+}
+
+/* 悬停高亮（红色半透明） */
+.sector-cell:hover .highlight-shape {
+    fill: rgba(231, 76, 60, 0.5);
+    stroke: #ffffff;
+    stroke-width: 3.5;
+}
+
+/* 选中高亮（亮绿色半透明） */
+.sector-cell.selected .highlight-shape {
+    fill: rgba(46, 204, 113, 0.65) !important;
+    stroke: #27ae60 !important;
+    stroke-width: 4.5 !important;
+}
+
+/* 单元格编号文本样式 */
+.cell-label {
+    fill: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.9);
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cx = 660;  // 拱门/圆心 X 坐标
+    const cy = 400;  // 拱门/圆心 Y 坐标
+
+    // 4 层圆环半径（划分为 A, B, C, D 四层）
+    const radii = [38, 123, 206, 295, 380];
+    const ringNames = ['A', 'B', 'C', 'D'];
+
+    // 3 个角度区间（将半圆切分为 3 份）
+    const angles = [90, 150, 210, 270];
+
+    const svgOverlay = document.getElementById("q9-svg-overlay");
+    if (!svgOverlay) return;
+
+    // 绘制 4 x 3 = 12 个扇环小区域
+    for (let r = 0; r < ringNames.length; r++) {
+        const rInner = radii[r];
+        const rOuter = radii[r + 1];
+        const ringName = ringNames[r];
+
+        for (let a = 0; a < angles.length - 1; a++) {
+            const startAngle = angles[a];
+            const endAngle = angles[a + 1];
+            const cellId = `${ringName}${a + 1}`; // 编号为 A1, A2, A3, B1...
+
+            const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            g.setAttribute("class", "sector-cell");
+            g.setAttribute("data-area", cellId);
+            g.onclick = function () { selectGridSector(cellId, g); };
+
+            // 绘制扇环路径
+            const pathData = describeAnnularSector(cx, cy, rInner, rOuter, startAngle, endAngle);
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute("d", pathData);
+            path.setAttribute("class", "highlight-shape");
+
+            // 计算居中文字坐标
+            const midRadius = (rInner + rOuter) / 2;
+            const midAngle = (startAngle + endAngle) / 2;
+            const labelPos = polarToCartesian(cx, cy, midRadius, midAngle);
+
+            const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            text.setAttribute("x", labelPos.x);
+            text.setAttribute("y", labelPos.y);
+            text.setAttribute("class", "cell-label");
+            text.textContent = cellId;
+
+            g.appendChild(path);
+            g.appendChild(text);
+            svgOverlay.appendChild(g);
+        }
+    }
+});
+
+// 极坐标转换
+function polarToCartesian(cx, cy, radius, angleInDegrees) {
+    const angleInRadians = (angleInDegrees * Math.PI) / 180.0;
+    return {
+        x: cx + radius * Math.cos(angleInRadians),
+        y: cy + radius * Math.sin(angleInRadians)
+    };
+}
+
+// 扇环 SVG Path 路径绘制器
+function describeAnnularSector(cx, cy, rInner, rOuter, startAngle, endAngle) {
+    const p1 = polarToCartesian(cx, cy, rOuter, startAngle);
+    const p2 = polarToCartesian(cx, cy, rOuter, endAngle);
+    const p3 = polarToCartesian(cx, cy, rInner, endAngle);
+    const p4 = polarToCartesian(cx, cy, rInner, startAngle);
+
+    const largeArcFlag = (endAngle - startAngle) <= 180 ? "0" : "1";
+
+    return [
+        "M", p1.x, p1.y,
+        "A", rOuter, rOuter, 0, largeArcFlag, 1, p2.x, p2.y,
+        "L", p3.x, p3.y,
+        "A", rInner, rInner, 0, largeArcFlag, 0, p4.x, p4.y,
+        "Z"
+    ].join(" ");
+}
+
+// 选中交互
+function selectGridSector(cellId, element) {
+    const questionBox = element.closest('.question');
+    if (!questionBox) return;
+
+    const cells = questionBox.querySelectorAll('.sector-cell');
+    cells.forEach(cell => cell.classList.remove('selected'));
+
+    element.classList.add('selected');
+
+    const displaySpan = questionBox.querySelector('.selection-status-bar span');
+    if (displaySpan) {
+        displaySpan.innerText = cellId;
+    }
+
+    const inputField = questionBox.querySelector('input[type="hidden"]');
+    if (inputField) {
+        inputField.value = cellId;
+    }
+
+    if (typeof clearQuestionError === 'function') {
+        clearQuestionError(questionBox);
+    }
+}
+</script>
+
 <!--<label>-->
 <!--   Reason:-->
 <!--</label>-->
@@ -2041,30 +2228,30 @@ function selectPedestrian(personName, element) {
 <!--    placeholder="Please explain why you chose this person..."-->
 <!--    style="font-size: 20px;"-->
 <!--&gt;</textarea>-->
-<!--<br><br>-->
-<div class="question">
-<h3>
-    Q10: Imagine what if it is an emergency in the last question? For example, if there is a fire.
-</h3>
-<label> <input type="radio" name="Q10" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>
-<br>
-<label> <input type="radio" name="Q10" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>
-<br>
-<label> <input type="radio" name="Q10" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>
-<br>
-<label> <input type="radio" name="Q10" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>
-
+<!--&lt;!&ndash;<br><br>&ndash;&gt;-->
+<!--<div class="question">-->
+<!--<h3>-->
+<!--    Q10: Imagine what if it is an emergency in the last question? For example, if there is a fire.-->
+<!--</h3>-->
+<!--<label> <input type="radio" name="Q10" value="A" style="transform: scale(1.5); margin-right: 5px;" > A  </label>-->
+<!--<br>-->
+<!--<label> <input type="radio" name="Q10" value="B" style="transform: scale(1.5); margin-right: 5px;" > B  </label>-->
+<!--<br>-->
+<!--<label> <input type="radio" name="Q10" value="C" style="transform: scale(1.5); margin-right: 5px;" > C </label>-->
+<!--<br>-->
+<!--<label> <input type="radio" name="Q10" value="D" style="transform: scale(1.5); margin-right: 5px;" > D  </label>-->
+<!--</div>-->
+<!--    -->
 <!--<br>-->
 <!--<br><br>-->
-</div>
 
 <div class="question">
 <h3>
-    Q11: When selecting the position or area before, what factors did you take into account?
+    Q10: When selecting the position or area before, what factors did you take into account?
 </h3>
 
 <textarea
-    name="Q11_reason"
+    name="Q10_reason"
     rows="4"
     placeholder="Typing the factors you consider important..."
     style="
